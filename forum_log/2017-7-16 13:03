@@ -1,0 +1,60 @@
+启动虚拟环境
+启动数据库
+
+在~/DjangoProjects/IBMsite/mysite/下创建application文件夹
+在application文件夹中创建models.py文件
+编辑内容为
+from django.db import models
+
+#create application model
+class Application(models.Model) :
+	applicant_id = models.AutoField(primary_key=True)
+	email = models.EmailField()
+	applicant_name = models.CharField(max_length=32)
+	apply_department = models.CharField(max_length=20)
+	reason = models.CharField(max_length=200)
+
+保存,同步数据库
+python manage.py migrate
+----------
+修改主urls
+添加
+from django.conf.urls import include
+url中添加
+url(r'^mysite/',include('mysite.urls')),
+
+---------------------------------------------
+15:34
+在DjangoProjects/IBMsite/mysite/下创建models文件夹和views文件夹
+把application文件夹中的models.py复制到models文件夹中,改名为application_models.py删掉application文件夹(不用这种方法将主models.py文件和views.py减负,防止臃肿)
+在application_models.py中新增子类,因为删掉了application文件夹,需要同步数据库,没有这个可能同步失败
+	class Meta:
+		app_label='mysite'
+在models文件夹中创建__init__.py文件,内容为
+from XXX_models import *
+把所有的XXX_models.py都包含进去
+以后新建的models.py都放在models文件夹中,并且加上from XXX_models import *
+
+在views文件夹中创建application_views.py 和__init__.py
+同样__init__.py内容为
+from XXX_views import *
+把所有的XXX_views.py都包含进去
+以后新建的views.py都放在models文件夹中,并且加上from XXX_views import *
+修改mysite/下的urls.py,这个文件决定mysite/*路由
+内容为
+from django.conf.urls import url
+from django.contrib import admin
+from mysite import views
+
+urlpatterns = [
+	url(r'^application$',views.application),
+]
+最后修改views/application_views.py
+修改成填写申请表的样子
+-------------------
+15:53
+在manage.py同级目录下创建templates文件夹
+修改IBMsite目录下的setting.py
+在TEMPLATE的DIR的[]中添加
+os.path.join(BASE_DIR,'templates')
+

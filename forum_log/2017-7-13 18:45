@@ -1,0 +1,65 @@
+新建文件夹 forum
+安装pip
+安装虚拟环境 sudo pip install virtualenv
+激活虚拟环境 source forum/bin/active
+安装django
+安装 uswgi
+
+
+service mysql start
+
+mysql -u root -p
+MySQLUSER0308!!!
+
+create database forumdb default charset utf8 collate utf8_general_ci
+
+安装Mysqldb
+pip install mysql-python
+报错
+//sudo apt-get install python-setuptools
+sudo apt-get install libmysqld-dev
+//sudo apt-get install libmysqlclient-dev
+//sudo apt-get install python-dev
+
+再次pip install mysql-python
+----
+创建项目
+django-admin startproject IBMsite
+
+IBMsite/
+├── IBMsite
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── manage.py
+
+python manage.py runserver 0.0.0.0:8000
+works
+修改数据库为mysql
+删除db.sql3
+修改settings.py文件
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'forumdb',
+		'USER': 'root',
+		'PASSWORD': 'MySQLUSER0308!!!',
+		'HOST': '127.0.0.1',
+    }
+}
+
+setting.py的其他修改
+
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+---------------------------------
+新建app
+python manage.py startapp mysite
+在setting中的INSTALLED_APPS注册app
+----------------
+在IBMsite中的urls中添加url,
+在view中添加对应函数
+在IBMsite中的url是整个项目的url,是全局url,可以通过包含mysite中的url,然后再在mysite中创建urls.py
+
+
