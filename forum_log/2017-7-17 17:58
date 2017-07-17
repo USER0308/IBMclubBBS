@@ -1,0 +1,85 @@
+进入虚拟环境
+启动数据库
+
+修改application_models,将model和form分开,model单独为model,form单独为form
+application_models.py变成
+from django.db import models
+
+#create application model
+class Application_Model(models.Model) :
+	applicant_id = models.AutoField(primary_key=True)
+	email = models.EmailField()
+	applicant_name = models.CharField(max_length=32)
+	apply_department = models.CharField(max_length=12,choices=[('1','A'),('2','B'),('3','C'),('4','D'),('5','E')])
+	reason = models.TextField()
+	class Meta:
+		app_label='mysite'
+
+	def __str__(self):
+		return self.applicant_id
+
+#	def submit(self):
+#		self.save()
+
+在IBMsite/mysite下创建forms.py文件专门创建各种表格用,这里没有用到forms文件夹加__init__.py,考虑到forms应该不会很多
+forms.py内容为
+from django import forms
+from django.forms import fields
+from mysite.models import Application_Model
+
+class Application_Form(forms.ModelForm) :
+	email = fields.EmailField(
+		label='email',
+		required=True,
+		error_messages={
+		'invalid':'invalid input'		
+	})
+	applicant_name = fields.CharField(
+		label='applicant_name',
+		min_length=6,
+		max_length=32,
+		required=True,
+		error_messages={
+			'required':'empty input',
+			'min_length':'too short,at least 6 char',
+			'max_length':'too longth, at most 32 char'
+		})
+	apply_department = forms.ChoiceField(label='department',choices=[('1','A'),('2','B'),('3','C'),('4','D'),('5','E')])
+	reason = fields.CharField(label='reason',max_length=200,widget=forms.Textarea)
+	class Meta:
+		app_label='mysite'
+		model = Application_Model
+		fields = ('email','applicant_name','apply_department','reason')
+再修改view部分
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
+from mysite.models import Application_Model
+from mysite.forms import Application_Form
+# Create your views here.
+def application(request):
+	if request.method == 'GET':
+		application_form = Application_Form()
+		return render(request,'application_templates.html',{'form':application_form})
+	elif request.method =='POST':
+		getForm = Application_Form(request.POST)
+		v = getForm.is_valid()
+		if v:
+#			print(getForm.cleaned_data) print at the console
+			form=getForm.save(commit=False)
+			form.save()
+			return redirect('/mysite/application_submit/')
+		else:
+			print(getForm.errors)
+			return render(request,'application_templates.html',{'form':getForm})
+	return render(request,'application_templates.html')
+
+def application_submit(request):
+	return HttpResponse("Submit successfully, please wait for response")
+
+上面代码已经实现了多选框,TextField部分,save保存数据到数据库,以及填好表格之后跳转到成功界面
+修改urls.py增加application_submit的跳转路由
+from views import application,application_submit
+url(r'^application_submit/$',application_submit),
+最后修改application_views里的__init__.py 因为里面只包含了application,现在又定义了application_submit路由,所以将它改为
+from application_views import *
+还没实现:登录,注册

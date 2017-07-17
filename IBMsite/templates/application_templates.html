@@ -3,14 +3,58 @@
 <html>
     <head>
         <title>Application</title>
-        <style>
-            em {
-                color: LightSeaGreen;
-            }
-        </style>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <strong> current_time </strong>
+        <h1>IBM club</h1>
+
+		<form action="/mysite/application/" method="post">
+		 {% csrf_token %} 
+		<p>{{ form.email.label }}<br>
+			{{ form.email }}{{ form.errors.email.0 }}
+		</p>
+		<p>{{ form.applicant_name.label }}<br>
+			{{ form.applicant_name }}{{ form.errors.applicant_name.0 }}
+		</p>
+		<p>{{ form.apply_department.label }}<br>
+			{{ form.apply_department }}{{ form.errors.apply_department.0 }}
+		</p>
+		<p>{{ form.reason.label }}<br>
+			{{ form.reason }}{{ form.errors.reason.0 }}
+		</p>
+		<input type="submit" value="submit">
+		</form>
+
+		<p>Thank you for your support,please wait...</p>
+
+		<p>
+			I am a member of IBM club
+			<button>
+				Login
+			</button>
+		</p>
+		<p>
+			I have invitation code of IBM club
+			<button>
+				Sign
+			</button>
+		</p>
     </body>
 </html>
+<!--
+your name:<br>
+		<input type="text">
+		<br>
+		<br>
+		your email:<br>
+		<input type="text">
+		<br>
+		<br>
+		your department:<br>
+		<input type="text">
+		<br>
+		<br>
+		your reason:<br>
+		<input type="text">
+		<br>
+		<br>
+-->
