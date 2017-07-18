@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from mysite.models import Application_Model
@@ -5,11 +6,18 @@ from mysite.forms import Application_Form
 # Create your views here.
 def application(request):
 	if request.method == 'GET':
-		application_form = Application_Form()
+		application_form = Application_Form(initial={'apply_department':'组织部'})
 		return render(request,'application_templates.html',{'form':application_form})
 	elif request.method =='POST':
 		getForm = Application_Form(request.POST)
+#		print(request.POST['email'])
+#		print(request.POST['applicant_name'])
+#		print(request.POST['apply_department'])
+#		print(request.POST['reason'])
+#		print('before is_valid')
 		v = getForm.is_valid()
+#		print('after is_valid')
+#		print(v)
 		if v:
 			print(getForm.cleaned_data)
 #			application.save()

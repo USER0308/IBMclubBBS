@@ -1,0 +1,181 @@
+进入虚拟环境,启动数据库客户端
+
+在models文件夹中创建member_models.py
+from django.db import models
+
+class Member_Model(models.Model):
+	member_id = models.AutoField(primary_key=True)
+	email = models.ForeignKey("Application_Model",null=False) 
+	password = models.CharField(null=False,max_length=128)
+	costs = models.PositiveSmallIntegerField(null=False,default=0)
+	nick_name = models.CharField(null=True,max_length=20)
+	department = models.CharField(null=True,max_length=15)
+	phone_number = models.CharField(null=True,max_length=11)
+	address = models.CharField(null=True,max_length=10)
+	class Meta:
+		app_label='mysite'
+
+	def __str__(self):
+		return str(self.member_id)
+
+email是application_models的外码
+创建manager.py(未用到)
+from django.db import models
+
+class Manager_Model(models.Model):
+	member_id = models.ForeignKey("Member_Model",null=False)
+	position = models.CharField(max_length=10)
+	class Meta:
+		app_label='mysite'
+
+	def __str__(self):
+		return str(self.member_id)
+
+创建code.models.py(未用到)
+from django.db import models
+
+class Code(models.Model):
+	code = models.CharField(max_length=10,primary_key=True)
+	member_id = models.ForeignKey("Manager_Model",null=False)
+	email = models.ForeignKey("Application_Model",null=False)
+
+修改了application_view
+#-*-coding:utf-8-*-
+application_form = Application_Form(initial={'apply_department':'组织部'})
+
+主要工作是创建了sign_up相关的models--member和views和urls
+urls相关
+from views import sign_up,home_page
+	url(r'^sign_up/$',sign_up),
+	url(r'home_page/$',home_page),
+
+forms相关
+修改了Application_Form的部分
+#-*-coding:utf-8-*-
+apply_department = forms.ChoiceField(label='apply_department',choices=[(u'秘书部','秘书部'),(u'人力资源部','人力资源部'),(u'宣传部','宣传部'),(u'组织部','组织部')],widget=forms.Select())
+	def __init__(self, *args, **kwargs):
+		super(Application_Form, self).__init__(*args, **kwargs)
+		# assign a (computed, I assume) default value to the choice field
+		self.initial['apply_department'] = '组织部'
+新建了Sign_Up_Form
+class Sign_Up_Form(forms.ModelForm):
+	email = fields.EmailField(
+		label='email',
+		required=True,
+		error_messages={
+		'invalid':'invalid input'		
+	})
+	code = fields.CharField(
+		label='code',
+		min_length=10,
+		max_length=10,
+		required=True,
+		error_messages={
+			'required':'empty input',
+			'min_length':'it should be 10 char',
+			'max_length':'it should be 10 char'
+		})
+	password = fields.CharField(label='password',max_length=128,required=True,widget=forms.PasswordInput)
+	password_confirm = fields.CharField(label='password_confirm',max_length=128,required=True,widget=forms.PasswordInput)
+	
+	nick_name = fields.CharField(label='nick_name',required=False,max_length=20)
+	department = forms.ChoiceField(label='department',choices=[('秘书部','秘书部'),('人力资源部','人力资源部'),('宣传部','宣传部'),('组织部','组织部')])
+	phone_number = fields.CharField(label='phone_number',required=False,max_length=11,min_length=11)
+	address = fields.CharField(label='address',required=False,max_length=10)
+	class Meta:
+		app_label='mysite'
+		model = Member_Model
+		fields = ('email','password','nick_name','department','phone_number','address')
+
+	def clean(self):
+		#email has been used?
+		get_email = self.cleaned_data['email']
+		is_email_exist = Member_Model.objects.filter(email=get_email).exists()
+		if is_email_exist:
+			raise forms.ValidationError("this email has been used")
+		# password
+		password_1 = self.cleaned_data.get("password")
+		password_2 = self.cleaned_data.get("password_confirm")
+		if password_1 and password_2 and password_1 != password_2:
+			raise forms.ValidationError(_('password confirm failed'))
+		#code and password are satisfy
+		get_code = self.cleaned_data.get("code")
+		is_satisfy = Code.objects.filter(email=get_email,code=get_code).exists()
+		if not is_satisfy:
+			raise forms.ValidationError(_('code and email are not satisfy'))
+		return self.cleaned_data
+
+views相关
+新建了sign_up_views.py
+#-*-coding:utf-8-*-
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
+from mysite.models import Member_Model
+from mysite.forms import Sign_Up_Form
+
+def sign_up(request):
+	if request.method == 'GET':
+		sign_up_form = Sign_Up_Form(initial={'department':'组织部'})
+		return render(request,'sign_up_templates.html',{'form':sign_up_form})
+	elif request.method == 'POST':
+		getForm = Sign_Up_Form(request.POST)
+		print("check if is valid")
+		v = getForm.is_valid()
+		if v:
+			#confirm if the code and email is the same as 
+			print("before save(commit)")
+			department=getForm.cleaned_data['apply_department']
+			member=getForm.save(commit=False)
+			member.save()
+			return redirect('/mysite/home_page/')#should redirect to loginsuccessfully page
+
+		else:
+			return render(request,'sign_up_templates.html',{'form':getForm})
+			
+	return render(request,'sign_up_templates.html')
+
+def home_page(request):
+	return HttpResponse("This is home_page")
+
+再在__init__.py中import相关的views和models
+增加了sign_up_templates.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign_up</title>
+    </head>
+    <body>
+        <h1>IBM club</h1>
+
+		<form action="/mysite/sign_up/" method="post">
+		 {% csrf_token %} 
+		<p>{{ form.email.label }}<br>
+			{{ form.email }}{{ form.errors.email.0 }}
+		</p>
+		<p>{{ form.code.label }}<br>
+			{{ form.code }}{{ form.errors.code.0 }}
+		</p>
+		<p>{{ form.password.label }}<br>
+			{{ form.password }}{{ form.errors.password.0 }}
+		</p>
+		<p>{{ form.password_confirm.label }}<br>
+			{{ form.password_confirm }}{{ form.errors.password_confirm.0 }}
+		</p>
+		<p>these are alternative</p>
+		<p>{{ form.nick_name.label }}<br>
+			{{ form.nick_name }}{{ form.errors.nick_name.0 }}
+		</p>
+		<p>{{ form.department.label }}<br>
+			{{ form.department }}{{ form.errors.department.0 }}
+		</p>
+		<p>{{ form.phone_number.label }}<br>
+			{{ form.phone_number }}{{ form.errors.phone_number.0 }}
+		</p>
+		<p>{{ form.address.label }}<br>
+			{{ form.address }}{{ form.errors.address.0 }}
+		</p>
+		<input type="submit" value="submit">
+		</form>
+    </body>
+</html>
+未完成:forms.py中的clean函数似乎没有执行,没有检测code和email是否满足条件

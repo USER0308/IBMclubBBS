@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign_up</title>
+    </head>
+    <body>
+        <h1>IBM club</h1>
+
+		<form action="/mysite/sign_up/" method="post">
+		 {% csrf_token %} 
+		<p>{{ form.email.label }}<br>
+			{{ form.email }}{{ form.errors.email.0 }}
+		</p>
+		<p>{{ form.code.label }}<br>
+			{{ form.code }}{{ form.errors.code.0 }}
+		</p>
+		<p>{{ form.password.label }}<br>
+			{{ form.password }}{{ form.errors.password.0 }}
+		</p>
+		<p>{{ form.password_confirm.label }}<br>
+			{{ form.password_confirm }}{{ form.errors.password_confirm.0 }}
+		</p>
+		<p>these are alternative</p>
+		<p>{{ form.nick_name.label }}<br>
+			{{ form.nick_name }}{{ form.errors.nick_name.0 }}
+		</p>
+		<p>{{ form.department.label }}<br>
+			{{ form.department }}{{ form.errors.department.0 }}
+		</p>
+		<p>{{ form.phone_number.label }}<br>
+			{{ form.phone_number }}{{ form.errors.phone_number.0 }}
+		</p>
+		<p>{{ form.address.label }}<br>
+			{{ form.address }}{{ form.errors.address.0 }}
+		</p>
+		<input type="submit" value="submit">
+		</form>
+    </body>
+</html>
