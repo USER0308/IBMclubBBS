@@ -83,3 +83,13 @@ application_templates.html中修改button为超链接,增加跳转路由
 		</p>
 
 检查__init__是否导入相关的models和views
+
+数据库中增加几条数据
+member表
+id=1,password='password',email='myemail@mail.com'
+id=2,password='test',email='test@test.com'
+manager表
+id=1,position='部长',member_id=1
+code表
+code='adminadmin',email='myemail@mail.com',member_id=1
+code='tobemember',email='test@test.com',member_id=1
