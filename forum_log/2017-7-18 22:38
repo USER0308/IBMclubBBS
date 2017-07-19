@@ -123,8 +123,8 @@ def sign_up(request):
 		v = getForm.is_valid()
 		if v:
 			#confirm if the code and email is the same as 
-			print("before save(commit)")
-			department=getForm.cleaned_data['apply_department']
+			#print("before save(commit)")
+			#department=getForm.cleaned_data['apply_department']
 			member=getForm.save(commit=False)
 			member.save()
 			return redirect('/mysite/home_page/')#should redirect to loginsuccessfully page

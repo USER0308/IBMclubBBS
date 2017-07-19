@@ -10,7 +10,7 @@ def sign_up(request):
 		return render(request,'sign_up_templates.html',{'form':sign_up_form})
 	elif request.method == 'POST':
 		getForm = Sign_Up_Form(request.POST)
-		print("check if is valid")
+#		print("check if is valid")
 		v = getForm.is_valid()
 #		print(v)
 		if v:
@@ -19,8 +19,8 @@ def sign_up(request):
 #			application.save()
 #			application.submit()
 			#confirm if the code and email is the same as 
-			print("before save(commit)")
-			department=getForm.cleaned_data['apply_department']
+#			print("before save(commit)")
+#			department=getForm.cleaned_data['apply_department']
 			member=getForm.save(commit=False)
 #			print('after save(commit)')
 #			is_satisfy = getForm.code_satisfy()

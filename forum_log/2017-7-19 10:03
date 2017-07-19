@@ -1,38 +1,13 @@
-#-*-coding:utf-8-*-
-from django import forms
-from django.forms import fields
+进入虚拟环境,连接数据库
+之前member_models中email是ForeignKey,此时实际上连接的是Application中的id而不是email,因为email不是主码,所以也不是外码
+修改为
+	email = models.EmailField(null=False) 
+修改application_models中choice的默认值default为组织部
+将code_models中email外码修改为EmailField
+	email = models.EmailField(null=False)
+
+修改了forms中的Sign_Up_Form
 from mysite.models import Application_Model,Member_Model,Code_Model
-
-class Application_Form(forms.ModelForm) :
-#	applicant_id = Form.AutoField(primary_key=True)
-	email = fields.EmailField(
-		label='email',
-		required=True,
-		error_messages={
-		'invalid':'invalid input'		
-	})
-	applicant_name = fields.CharField(
-		label='applicant_name',
-		min_length=6,
-		max_length=32,
-		required=True,
-		error_messages={
-			'required':'empty input',
-			'min_length':'too short,at least 6 char',
-			'max_length':'too longth, at most 32 char'
-		})
-	apply_department = forms.ChoiceField(label='apply_department',choices=[(u'秘书部','秘书部'),(u'人力资源部','人力资源部'),(u'宣传部','宣传部'),(u'组织部','组织部')],widget=forms.Select())
-	reason = fields.CharField(label='reason',max_length=200,widget=forms.Textarea)
-	class Meta:
-		app_label='mysite'
-		model = Application_Model
-		fields = ('email','applicant_name','apply_department','reason')
-
-	def __init__(self, *args, **kwargs):
-		super(Application_Form, self).__init__(*args, **kwargs)
-		# assign a (computed, I assume) default value to the choice field
-		self.initial['apply_department'] = '组织部'
-
 
 class Sign_Up_Form(forms.ModelForm):
 	email = fields.EmailField(
@@ -95,11 +70,16 @@ class Sign_Up_Form(forms.ModelForm):
 			raise forms.ValidationError('password confirm failed')
 		return password_2
 
-#	def code_satisfy(self):
-#		get_email = self.cleaned_data.get("email")
-#		get_code = self.cleaned_data.get("code")
-#		count = Code.obects.filter(email=get_email,code=get_code).count()
-#		if count == 1:
-#			return True
-#		else:
-#			return False
+sign_up_views中注释了部分debug语句
+urls中r'home_page$'更改为r'^home_page$'
+application_templates.html中修改button为超链接,增加跳转路由
+		<p>
+			I am a member of IBM club
+			<a href="/mysite/login/">Login</a>			
+		</p>
+		<p>
+			I have invitation code of IBM club
+			<a href="/mysite/sign_up">Sign</a>
+		</p>
+
+检查__init__是否导入相关的models和views

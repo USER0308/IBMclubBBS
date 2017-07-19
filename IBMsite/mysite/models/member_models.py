@@ -2,7 +2,7 @@ from django.db import models
 
 class Member_Model(models.Model):
 	member_id = models.AutoField(primary_key=True)
-	email = models.ForeignKey("Application_Model",null=False) 
+	email = models.EmailField(null=False) 
 	password = models.CharField(null=False,max_length=128)
 	costs = models.PositiveSmallIntegerField(null=False,default=0)
 	nick_name = models.CharField(null=True,max_length=20)

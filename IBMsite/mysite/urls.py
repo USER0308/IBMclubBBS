@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^application_submit/$',application_submit),
 #	url(r'^login/$',login),
 	url(r'^sign_up/$',sign_up),
-	url(r'home_page/$',home_page),
+	url(r'^home_page/$',home_page),
 ]
