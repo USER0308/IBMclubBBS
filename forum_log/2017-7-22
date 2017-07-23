@@ -1,0 +1,7 @@
+在forms.py中增加了Login_Form类
+设置相关clean_ATTRIBUTE方法,在这些方法中检测帐号是否符合格式,是否已经存在,帐号密码是否一致
+增加了login_views.py,只作了简单的登录后即跳转到主页的代码
+
+
+
+

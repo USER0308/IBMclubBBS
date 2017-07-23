@@ -1,0 +1,17 @@
+{% extends "base_with_header_footer.html" %}
+{% block main-middle%}
+<p>your email is {{ email }}</p>
+<form action="/mysite/save_new_info/" method="post">
+{% csrf_token %}
+<p>{{ form.nick_name.label }}<br>
+{{ form.nick_name }}{{ form.errors.nick_name.0 }}
+</p>
+<p>{{ form.phone_number.label }}<br>
+{{ form.phone_number }}{{ form.errors.phone_number.0 }}
+</p>
+<p>{{ form.address.label }}<br>
+{{ form.address }}{{ form.errors.address.0 }}
+</p>
+<input type="submit" value="save">
+</form>
+{% endblock %}

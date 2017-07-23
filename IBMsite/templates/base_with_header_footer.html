@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>两列居中自适应布局</title>
+<style>
+*{margin:0;padding:0;}
+#herder{
+    height:50px;
+    background:yellow;
+}
+#main{
+    width:80%;
+    margin:0 auto;
+    overflow:hidden;
+}
+#main .main-left{
+    width:20%;
+    height:600px;
+    background:red;
+    float:left;
+}
+#main .main-middle{
+    width:60%;
+    height:800px;
+    background:blue;
+    float:left;
+}
+#main .main-middle #post_list {
+    text-align: center;
+}
+#main .main-right{
+    width:20%;
+    height:300px;
+    background:pink;
+    float:right;
+}
+#footer{
+    width:80%;
+    height:50px;
+    background:gray;
+    margin:0 auto;
+}
+</style>
+</head>
+<body>
+<div id="herder">
+    IBM 论坛 <a href=""> 发帖 </a> <a href=""> logout</a>
+</div>
+<div id="main">
+    <div class="main-left">
+        {% block main-left %}{% endblock %}
+    </div>
+    <div class="main-middle">
+        {% block main-middle %}{% endblock %}
+    </div>
+    <div class="main-right">
+        {% block main-right %}{% endblock %}
+    </div>
+</div>
+<div id="footer">
+this is footer . all right reserve
+</div>
+</body>
+</html>

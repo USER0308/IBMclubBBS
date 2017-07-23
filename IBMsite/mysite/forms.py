@@ -3,7 +3,7 @@ from django import forms
 from django.forms import fields
 from mysite.models import Application_Model,Member_Model,Code_Model
 
-class Application_Form(forms.ModelForm) :
+class Application_Form(forms.ModelForm):
 #	applicant_id = Form.AutoField(primary_key=True)
 	email = fields.EmailField(
 		label='email',
@@ -95,6 +95,44 @@ class Sign_Up_Form(forms.ModelForm):
 			raise forms.ValidationError('password confirm failed')
 		return password_2
 
+class Login_Form(forms.Form):
+	email=fields.EmailField(
+		label='email',
+		required=True,
+		error_messages={
+		'invalid':'invalid input'		
+		})
+	password=fields.CharField(label='password',max_length=128,required=True,widget=forms.PasswordInput)
+	class Meta:
+		app_label='mysite'
+
+	def clean_email(self):
+		get_email = self.cleaned_data.get("email")
+		email_is_exist = Member_Model.objects.filter(email=get_email).exists()
+		if not email_is_exist:
+			raise forms.ValidationError('email does not exist')
+		return get_email
+
+	def clean_password(self):
+		get_email = self.cleaned_data.get("email")
+		get_password = self.cleaned_data.get("password")
+		password_is_correct = Member_Model.objects.filter(email=get_email,password=get_password).exists()
+		if not password_is_correct:
+			raise forms.ValidationError('email or password is wrong')
+		return get_password
+
+class Change_Info_Form(forms.Form):
+#	password = fields.CharField(label='password',max_length=128,required=True,widget=forms.PasswordInput)
+#	password_confirm = fields.CharField(label='password_confirm',max_length=128,required=True,widget=forms.PasswordInput)
+	
+	nick_name = fields.CharField(label='nick_name',required=False,max_length=20)
+#	department = forms.ChoiceField(required=False,label='department',choices=[(u'秘书部','秘书部'),(u'人力资源部','人力资源部'),(u'宣传部','宣传部'),(u'组织部','组织部')])
+	phone_number = fields.CharField(label='phone_number',required=False,max_length=11,min_length=11)
+	address = fields.CharField(label='address',required=False,max_length=10)
+	class Meta:
+		app_label='mysite'
+		model = Member_Model
+		fields = ('nick_name','phone_number','address')
 #	def code_satisfy(self):
 #		get_email = self.cleaned_data.get("email")
 #		get_code = self.cleaned_data.get("code")

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>两列居中自适应布局</title>
+<style>
+*{margin:0;padding:0;}
+#herder{
+    height:50px;
+    background:blue;
+}
+#header #header-left {
+    float: left;
+}
+#header #header-right {
+    float: right;
+}
+#main{
+    width:80%;
+    margin:0 auto;
+    overflow:hidden;
+}
+#main .main-left{
+    width:20%;
+    height:600px;
+    background:red;
+    float:left;
+}
+#main .main-middle{
+    width:60%;
+    height:800px;
+    background:blue;
+    float:left;
+}
+#main .main-middle #post_list {
+    text-align: center;
+}
+#main .main-right{
+    width:20%;
+    height:300px;
+    background:pink;
+    float:right;
+}
+#footer{
+    width:80%;
+    height:50px;
+    background:gray;
+    margin:0 auto;
+}
+</style>
+</head>
+<body>
+<div id="herder">
+    <span id="header-left"> IBM 论坛 发帖 </span> <span id="header-right">logout</span>
+</div>
+<div id="main">
+    <div class="main-left">
+        左列<br>
+        昵称<br>
+        邮箱<br>
+        部门<br>
+        积分<br>
+        修改<br>
+    </div>
+    <div class="main-middle">
+        中列<br>
+        <div id="post_list">
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+            this is a list of post<br>
+        </div>
+    </div>
+    <div class="main-right">
+        右列<br>
+        学术讨论区<br>
+        部门交流区<br>
+        灌水区<br>
+        精华区<br>
+        资源共享区<br>
+    </div>
+</div>
+<div id="footer">页脚</div>
+</body>
+</html>

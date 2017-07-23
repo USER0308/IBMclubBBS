@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from mysite.models import Member_Model
 from mysite.forms import Sign_Up_Form
-
+from django.contrib.auth.models import User
 def sign_up(request):
 	if request.method == 'GET':
 		sign_up_form = Sign_Up_Form(initial={'department':'组织部'})
@@ -21,6 +21,9 @@ def sign_up(request):
 			#confirm if the code and email is the same as 
 #			print("before save(commit)")
 #			department=getForm.cleaned_data['apply_department']
+			get_email = getForm.cleaned_data['email']
+			get_password = getForm.cleaned_data['password']
+			User.objects.create_user(username=get_email,password=get_password)
 			member=getForm.save(commit=False)
 #			print('after save(commit)')
 #			is_satisfy = getForm.code_satisfy()
@@ -40,6 +43,6 @@ def sign_up(request):
 			
 	return render(request,'sign_up_templates.html')
 
-def home_page(request):
+#def home_page(request):
 #	if request.method == 'GET'
-	return HttpResponse("This is home_page")
+#	return HttpResponse("This is home_page")
