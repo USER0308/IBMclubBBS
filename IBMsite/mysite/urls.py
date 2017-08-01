@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 from views import application,application_submit
-from views import sign_up,home_page,login_view,logout_view,change_info,save_new_info
+from views import sign_up,home_page,login_view,logout_view,change_info,save_new_info,new_post
 
 urlpatterns = [
 #    url(r'^admin/', admin.site.urls),
@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^home_page/$',home_page),
 	url(r'^change_info/$',change_info),
 	url(r'^save_new_info/$',save_new_info),
+	url(r'^new_post/$',new_post),
 ]

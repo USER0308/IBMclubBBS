@@ -1,0 +1,19 @@
+{% extends "base_with_header_footer.html" %}
+{% block main-middle%}
+<form action="/mysite/new_post/" method="post">
+{% csrf_token %}
+<p>{{ form.theme.label }}<br>
+  {{ form.theme }}{{ form.errors.theme.0 }}
+</p>
+<p>{{ form.content.label }}<br>
+  {{ form.content }}{{ form.errors.content.0 }}
+</p>
+<p>{{ form.section.label }}<br>
+			{{ form.section }}{{ form.errors.section.0 }}
+		</p>
+    <input type="submit"/>
+</form>
+
+
+
+{% endblock %}

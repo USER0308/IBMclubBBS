@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'mysite',
+	'ckeditor',
+	'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -135,4 +137,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = "/home/user0308/pythonPro/DjangoProjects/IBMsite/static/"
 STATIC_URL = '/static/'
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'full',
+    },
+}
+MEDIA_URL = "/home/user0308/pythonPro/DjangoProjects/IBMsite/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+CKEDITOR_UPLOAD_PATH = "/home/user0308/pythonPro/DjangoProjects/IBMsite/uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+#CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_JQUERY_URL ='https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'

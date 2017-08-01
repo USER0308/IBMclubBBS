@@ -1,0 +1,7 @@
+新增post_models.py文件,定义了Post_Model
+在forms.py中增加New_Post_Form
+在new_post_views.py中新增new_post(未完成)
+在url中增加new_post路由
+增加new_post_templates.html模板
+pip install django-ckeditor
+在setting.py中INSTALLED_APP增加ckeditor,ckeditor_uploader

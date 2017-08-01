@@ -1,7 +1,9 @@
 #-*-coding:utf-8-*-
 from django import forms
 from django.forms import fields
-from mysite.models import Application_Model,Member_Model,Code_Model
+from mysite.models import Application_Model,Member_Model,Code_Model,Post_Model
+#from ckeditor.widgets import CKEditorWidget
+#from ckeditor.fields import RichTextField
 
 class Application_Form(forms.ModelForm):
 #	applicant_id = Form.AutoField(primary_key=True)
@@ -133,6 +135,19 @@ class Change_Info_Form(forms.Form):
 		app_label='mysite'
 		model = Member_Model
 		fields = ('nick_name','phone_number','address')
+
+class New_Post_Form(forms.ModelForm):	
+	theme = fields.CharField(label='theme',required=True,max_length=128)
+	content = fields.CharField(label='content',max_length=10240,widget=forms.Textarea)
+	section = forms.ChoiceField(label='section',required=True,choices=[(u'学术讨论区','学术讨论区'),
+																	(u'部门交流区','部门交流区'),
+																	(u'灌水区','灌水区'),
+																	(u'精华区','精华区'),
+																	(u'资源共享区','资源共享区')])
+	class Meta:
+		app_label='mysite'
+		model = Post_Model
+		fields = ('theme','content','section')
 #	def code_satisfy(self):
 #		get_email = self.cleaned_data.get("email")
 #		get_code = self.cleaned_data.get("code")

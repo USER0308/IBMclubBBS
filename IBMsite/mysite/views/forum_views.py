@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,render_to_response
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from mysite.views import Member_Model
+from mysite.models import Member_Model
 from mysite.forms import Change_Info_Form
 
 @login_required(login_url='/mysite/login/')

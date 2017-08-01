@@ -4,73 +4,26 @@
     <p>Costs : {{ cost }}</p>
     <p>Nick_name : {{ nick_name }}</p>
     <p>Department : {{ department }}</p>
-    <a href="/mysite/change_info/">change my infomation</a>
-    <a href="/mysite/logout">logout</a>    
+    <a href="/mysite/change_info/">change my infomation</a>    
 {% endblock %}
 {% block main-middle%}
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
-            this is a list of post<br>
+           {% for post in posts %}
+           <li>
+	           post id : {{ post.post_id }},
+	           <br/>
+	           author : {{ post.author }},
+	           <br/>
+	           time: {{ post.time }},
+	           <br/>
+	           theme : {{ post.theme }},
+	           <br/>
+	           section : {{ post.section }},
+	           <br/>
+	           content : {{ post.content }}
+	           <br/>
+	           <br/>
+           </li>
+            {% endfor %}
 {% endblock %}
 {% block main-right %}
         右列<br>
