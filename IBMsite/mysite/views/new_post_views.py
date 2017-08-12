@@ -28,7 +28,7 @@ def new_post(request):
 			if get_post.author is None:
 				get_post.author = user.email
 			get_post.save()
-			return redirect('../home_page/')
+			return redirect('/mysite/home_page/')
 	else:
 		return render(request,'new_post_templates.html')
 	

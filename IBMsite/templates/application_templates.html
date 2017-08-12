@@ -1,41 +1,50 @@
-<!--在test.html文件夹下添加-->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Application</title>
-    </head>
-    <body>
-        <h1>IBM club</h1>
-
-		<form action="/mysite/application/" method="post">
-		 {% csrf_token %} 
-		<p>{{ form.email.label }}<br>
-			{{ form.email }}{{ form.errors.email.0 }}
-		</p>
-		<p>{{ form.applicant_name.label }}<br>
-			{{ form.applicant_name }}{{ form.errors.applicant_name.0 }}
-		</p>
-		<p>{{ form.apply_department.label }}<br>
-			{{ form.apply_department }}{{ form.errors.apply_department.0 }}
-		</p>
-		<p>{{ form.reason.label }}<br>
-			{{ form.reason }}{{ form.errors.reason.0 }}
-		</p>
-		<input type="submit" value="submit">
-		</form>
-
-		<p>Thank you for your support...</p>
-
-		<p>
-			I am a member of IBM club
-			<a href="/mysite/login/">Login</a>			
-		</p>
-		<p>
-			I have invitation code of IBM club
-			<a href="/mysite/sign_up">Sign</a>
-		</p>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Application{% endblock %}
+    {% block body %}
+        <h1 align="center">IBM club</h1>
+        <div class="row">
+        	<div class="col-md-3 col-md-offset-4">
+        	 	<div class="panel panel-default">
+		        	<div class="panel-body">
+		        		<form action="/mysite/application/" method="post">
+						 {% csrf_token %} 
+						 <div class="form-group">
+						 	<p>{{ form.email.label }}<br>
+							{{ form.email }}{{ form.errors.email.0 }}
+							</p>
+						 </div>
+						
+						<div class="form-group">
+						 	<p>{{ form.applicant_name.label }}<br>
+							{{ form.applicant_name }}{{ form.errors.applicant_name.0 }}
+							</p>
+						 </div>
+						
+						<div class="form-group">
+						 	<p>{{ form.apply_department.label }}<br>
+							{{ form.apply_department }}{{ form.errors.apply_department.0 }}
+							</p>
+						 </div>
+						
+						<div class="form-group">
+						 	<p>{{ form.reason.label }}<br>
+							{{ form.reason }}{{ form.errors.reason.0 }}
+							</p>
+						 </div>
+						<input type="submit" value="submit">
+						</form>
+						<p>Thank you for your support...</p>
+						<p>I am a member of IBM club
+							<a href="/mysite/login/">Login</a>			
+						</p>
+						<p>I have invitation code of IBM club
+							<a href="/mysite/sign_up">Sign</a>
+						</p>
+		        	</div>
+        		</div>
+        	</div>
+        </div>
+	{% endblock %}
 <!--
 your name:<br>
 		<input type="text">

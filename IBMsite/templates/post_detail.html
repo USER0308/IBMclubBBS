@@ -1,0 +1,18 @@
+{% extends "base_with_header_footer.html" %}
+{% block main-middle %}
+<div class="date">
+    {% if post.time %}
+        {{ post.time }}
+    {% endif %}
+</div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.author }}发表在{{ post.section }}板块  <a href="">回复此楼</a></p>
+    <br/>
+    <p>{{ post.content|linebreaks }}</p>
+    <hr/>
+    <p>2楼</p>
+    <p>3楼</p>
+    <p>4楼</p>
+    <p>5楼</p>
+    <p>6楼</p>
+{% endblock %}

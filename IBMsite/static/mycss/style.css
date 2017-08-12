@@ -1,0 +1,36 @@
+*{margin:0;padding:0;}
+#header{
+    height:50px;
+    background:red;
+}
+#main{
+    width:80%;
+    margin:0 auto;
+    overflow:hidden;
+}
+#main .main-left{
+    width:20%;
+    height:600px;
+    background:yellow;
+    float:left;
+}
+#main .main-middle{
+    width:60%;
+    background:pink;
+    float:left;
+}
+#main .main-middle #post_list {
+    text-align: center;
+}
+#main .main-right{
+    width:20%;
+    height:300px;
+    background:green;
+    float:right;
+}
+#footer{
+    width:80%;
+    height:50px;
+    background:pink;
+    margin:0 auto;
+}

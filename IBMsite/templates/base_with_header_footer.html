@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>主页</title>
-<style>
+{% extends "base.html" %}
+{% block head %}
+<style type="text/css">
 *{margin:0;padding:0;}
-#herder{
+#header{
     height:50px;
-    background:white;
+    background:red;
 }
 #main{
     width:80%;
@@ -17,13 +14,12 @@
 #main .main-left{
     width:20%;
     height:600px;
-    background:white;
+    background:yellow;
     float:left;
 }
 #main .main-middle{
     width:60%;
-    height:800px;
-    background:white;
+    background:pink;
     float:left;
 }
 #main .main-middle #post_list {
@@ -32,20 +28,43 @@
 #main .main-right{
     width:20%;
     height:300px;
-    background:white;
+    background:green;
     float:right;
 }
 #footer{
     width:80%;
     height:50px;
-    background:white;
+    background:pink;
     margin:0 auto;
 }
 </style>
-</head>
-<body>
-<div id="herder">
-    <a href="../home_page"> IBM 论坛</a> <a href="../new_post"> 发帖 </a><a href="../">签到</a>  <a href="../logout"> logout</a>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('a#sign').click(function(){
+            $.ajax({
+                url: '/mysite/sign/',
+                type: 'POST',
+                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                dataType: 'json',
+                timeout: 10000,
+                success: function(result) {
+                    if(result.data == "post_success") {
+                        alert("sign success");
+                        window.location.reload();
+                    }else {
+                        alert("you have signed today,please come tomorrow");
+                    }
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+{% block title %}主页{% endblock %}
+{% block body %}
+<div id="header">
+    <a href="/mysite/home_page"> IBM 论坛</a> <a href="/mysite/new_post"> 发帖 </a><a id="sign" href="#"><span>签到</span></a>  <a href="/mysite/logout"> logout</a>
 </div>
 <div id="main">
     <div class="main-left">
@@ -61,5 +80,4 @@
 <div id="footer">
 this is footer . all right reserve
 </div>
-</body>
-</html>
+{% endblock %}
