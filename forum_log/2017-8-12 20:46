@@ -1,0 +1,5 @@
+继续美化前端
+增加base.html导入bootstrap的cdn,包含title,head,body等block
+改写美化application-template.html,sign_up_template.html,和login_template.html
+
+

@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Login</title>
-    </head>
-    <body>
-        <h1>IBM club</h1>
-
-		<form action="/mysite/login/" method="post">
-		 {% csrf_token %} 
-		<p>{{ form.email.label }}<br>
-			{{ form.email }}{{ form.errors.email.0 }}
-		</p>
-		<p>{{ form.password.label }}<br>
-			{{ form.password }}{{ form.errors.password.0 }}
-		</p>
-		<input type="submit" value="submit">
-		</form>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %} %Login {%endblock%}
+{% block body %}
+	<h1 align="center">IBM club</h1>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="/mysite/login/" method="post">
+					{% csrf_token %} 
+					<div class="form-group">
+						<p>{{ form.email.label }}<br>
+						{{ form.email }}{{ form.errors.email.0 }}
+						</p>
+					</div>
+					<div class="form-group">
+						<p>{{ form.password.label }}<br>
+						{{ form.password }}{{ form.errors.password.0 }}
+						</p>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="submit">
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

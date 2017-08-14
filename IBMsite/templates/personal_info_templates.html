@@ -1,9 +1,11 @@
-{% extends "base.html" %}
 {% block personal_info %}
-        <p>welcome {{ email }}</p>
-        <p>Costs : {{ cost }}</p>
-        <p>Nick_name : {{ nick_name }}</p>
-        <p>Department : {{ department }}</p>
-        <a href="">change my infomation</a>
-        <a href="/mysite/logout">logout</a>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<p>welcome {{ email }}</p>
+		    <p>Costs : {{ cost }}</p>
+		    <p>Nick_name : {{ nick_name }}</p>
+		    <p>Department : {{ department }}</p>
+		    <a href="/mysite/change_info/">change my infomation</a>
+		</div>
+	</div>
 {% endblock %}

@@ -6,18 +6,22 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from mysite.forms import New_Post_Form
 from mysite.models import Member_Model
+import json
 
 @login_required(login_url='/mysite/login/')
 def new_post(request):
+	# get_email = request.user.username
+	# if request.is_ajax():
+	# 	pass
 	if request.method == 'GET':
 		print('method is get')
 		new_form = New_Post_Form()
 		return render(request,'new_post_templates.html',{'form':new_form})
 	elif request.method == 'POST':
 		get_form = New_Post_Form(request.POST)
-#		print("check if is valid")
+		print("check if is valid")
 		v = get_form.is_valid()
-#		print(v)
+		print(v)
 		if v:
 			get_post = get_form.save(commit=False)
 			get_email = request.user.username
@@ -28,7 +32,7 @@ def new_post(request):
 			if get_post.author is None:
 				get_post.author = user.email
 			get_post.save()
-			return redirect('/mysite/home_page/')
+			return HttpResponse(json.dumps({"status":"200"}))
 	else:
 		return render(request,'new_post_templates.html')
 	

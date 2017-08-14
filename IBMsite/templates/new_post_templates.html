@@ -1,19 +1,76 @@
-{% extends "base_with_header_footer.html" %}
-{% block main-middle%}
-<form action="/mysite/new_post/" method="post">
-{% csrf_token %}
-<p>{{ form.theme.label }}<br>
-  {{ form.theme }}{{ form.errors.theme.0 }}
-</p>
-<p>{{ form.content.label }}<br>
-  {{ form.content }}{{ form.errors.content.0 }}
-</p>
-<p>{{ form.section.label }}<br>
-			{{ form.section }}{{ form.errors.section.0 }}
-		</p>
-    <input type="submit"/>
-</form>
+<div class="modal fade in" id="mymodal">
+	<div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">发表新帖子</h4>
+            </div>
+            <div class="modal-body">
+            	<form action="/mysite/new_post/" method="post" role="form">
+            		{% csrf_token %}
+            		<div class="form-group">
+            			<input type="text" class="form-control" name="theme" id="theme" placeholder="主题"/> 
+            			<br/>
+            			<textarea class="form-control" rows="8" name="content" id="content" placeholder="内容"></textarea>
+            			<br/>
+            			<label >发布在 :</label>
+            			<select class="form-control" name="section" id="section">
+            				<option>学术讨论</option>
+            				<option>部门交流</option>
+            				<option>灌水区</option>
+            				<option>资源共享区</option>
+            			</select>
+            		</div>
+            		<input type="submit">
+            	</form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="new_post()">保存</button>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- <script type="text/javascript">
+//     function new_post() {
+//         alert("call new_post");
+//         var theme = $('#theme').val();
+//         var content = $('#content').val();
+//         var section = $("#section").val();
+//         $.ajax({
+//             url: '/mysite/new_post/',
+//             type: "POST",
+//             data: {'theme': theme,'content': content,'section':section,'csrfmiddlewaretoken': '{{ csrf_token }}'},
+//             dataType: 'json',
+//             timeout :3000,
+//             success: function(result) {
+//                 alert(result.data)
+//             }
+//         })
+//     }
+// </script>-->
+<!--  <form action="/mysite/new_post/" method="post" role="form">
+					{% csrf_token %}
+					<p>{{ form.theme.label }}<br>
+					<div class="form-group">
+						{{ form.theme }}{{ form.errors.theme.0 }}
+					</div>
+					</p>
+					<p>{{ form.content.label }}<br>
+					<div class="form-group">
+						{{ form.content }}{{ form.errors.content.0 }}
+					</div>
+					
+					</p>
+					<p>{{ form.section.label }}<br>
+					<div class="form-group">
+						{{ form.section }}{{ form.errors.section.0 }}
+					</div>
+					
+					</p>
+				</form>
+				<input type="submit"> -->
 
 
 
-{% endblock %}
+

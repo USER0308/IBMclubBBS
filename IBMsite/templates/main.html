@@ -1,46 +1,50 @@
 {% extends "base_with_header_footer.html" %}
 {% block main-left%}
-    <p>welcome {{ email }}</p>
-    <p>Costs : {{ cost }}</p>
-    <p>Nick_name : {{ nick_name }}</p>
-    <p>Department : {{ department }}</p>
-    <a href="/mysite/change_info/">change my infomation</a>    
+    {% include "personal_info_templates.html" %}
 {% endblock %}
 {% block main-middle %}
     {% for post in posts %}
-    <li>
-       <a href="{% url 'post_detail' num=post.post_id %}">{{ post.theme }}</a>
-        <br/>
-	    <!-- post id : {{ post.post_id }},
-	    <br/> -->
-	    section : {{ post.section }},by : {{ post.author }},at: {{ post.time }},
-	    <br/>
-        <br/>
-	    content : {{ post.content }}
-	    <br/>
-	    <br/>
-        <br/>
-     </li>
+    <div class="list-group">
+            <a href="{% url 'post_detail' num=post.post_id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ post.theme }}</h4>
+            <p>section : {{ post.section }},by : {{ post.author }},at: {{ post.time }},</p>
+            <br/>
+            <p>content : {{ post.content }}</p>
+            </a>
+    </div>
      {% endfor %}
-     {% if posts.has_previous %}
-        <a class='paginator' title='上一页' href='/mysite/home_page/{{ type }}/{{ posts.previous_page_number }}'><span>&lt;&lt;</span></a>
-     {% endif %}
-     {% for page in posts.paginator.page_range_ext %}
-        {% ifequal page  posts.number %}
-            <a class='paginator_current' title='当前页:{{ page }}'><span>{{ page }}</span></a>
-        {% else %}
-            <a class='paginator' href='/mysite/home_page/{{ type }}/{{ page }}' title='{{ page }}'><span>{{ page }}</span></a>
-        {% endifequal %}
-     {% endfor %}
-     {% if posts.has_next %}
-        <a class='paginator' title='下一页' href='/mysite/home_page/{{ type }}/{{ posts.next_page_number }}'><span>&gt;&gt;</span></a>
-     {% endif %}
+     <nav aria-label="Page navigation" style="text-align:center">
+      <ul class="pagination">
+        <li>
+          {% if posts.has_previous %}
+            <a class='paginator' title='上一页' href='/mysite/home_page/{{ type }}/{{ posts.previous_page_number }}'><span>&lt;&lt;</span></a>
+         {% endif %}
+        </li>
+        {% for page in posts.paginator.page_range_ext %}
+            {% ifequal page  posts.number %}
+                <li><a class='paginator_current' title='当前页:{{ page }}'><span>{{ page }}</span></a></li>
+            {% else %}
+                <li><a class='paginator' href='/mysite/home_page/{{ type }}/{{ page }}' title='{{ page }}'><span>{{ page }}</span></a></li>
+            {% endifequal %}
+        {% endfor %}
+        <li>
+        {% if posts.has_next %}
+            <a class='paginator' title='下一页' href='/mysite/home_page/{{ type }}/{{ posts.next_page_number }}'><span>&gt;&gt;</span></a>
+        {% endif %}
+        </li>
+      </ul>
+    </nav>
+    {% include "new_post_templates.html" %}
 {% endblock %}
+
 {% block main-right %}
-        右列<br>
-        <a href="/mysite/home_page/scholar/"> 学术讨论区<br></a>
-        <a href="/mysite/home_page/department/"> 部门交流区<br></a>
-        <a href="/mysite/home_page/chat/"> 灌水区<br></a>
-        <a href="/mysite/home_page/jinghua/"> 精华区<br></a>
-        <a href="/mysite/home_page/share/"> 资源共享区<br></a>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="persentation" class="active"><a href="#">全部板块</a>
+            <li role="persentation"><a href="/mysite/home_page/scholar/"> 学术讨论区</a></li>
+            <li role="persentation"><a href="/mysite/home_page/department/"> 部门交流区</a></li>
+            <li role="persentation"><a href="/mysite/home_page/chat/"> 灌水区</a></li>
+            <li role="persentation"><a href="/mysite/home_page/jinghua/"> 精华区</a></li>
+            <li role="persentation"><a href="/mysite/home_page/share/"> 资源共享区</a></li>
+            </li>
+        </ul>
 {% endblock %}

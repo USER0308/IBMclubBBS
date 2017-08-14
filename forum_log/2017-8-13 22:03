@@ -1,0 +1,1 @@
+改写new_post,设置为弹出式,使用了bootstrap 的modal,通过javascript触发
