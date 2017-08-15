@@ -12,6 +12,7 @@ class Application_Model(models.Model) :
 	reason = models.TextField(null=False)
 	class Meta:
 		app_label='mysite'
+		verbose_name = 'Application Form'
 
 	def __str__(self):
 		return str(self.applicant_id)

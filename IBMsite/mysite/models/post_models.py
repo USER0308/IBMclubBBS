@@ -15,3 +15,10 @@ class Post_Model(models.Model):
 																(u'精华区','精华区'),
 																(u'资源共享区','资源共享区')])
 	content = models.CharField(null=False,max_length=10240)
+
+	class Meta:
+		app_label='mysite'
+		verbose_name = "post"
+
+	def __unicode__(self):
+		return self.theme

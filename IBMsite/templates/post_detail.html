@@ -6,13 +6,39 @@
     {% endif %}
 </div>
     <h1>{{ post.title }}</h1>
-    <p>{{ post.author }}发表在{{ post.section }}板块  <a href="">回复此楼</a></p>
+    <p>{{ post.author }}发表在{{ post.section }}板块  <a href="#" id="reply"><span>回复此楼</span></a></p>
     <br/>
     <p>{{ post.content|linebreaks }}</p>
     <hr/>
-    <p>2楼</p>
-    <p>3楼</p>
-    <p>4楼</p>
-    <p>5楼</p>
-    <p>6楼</p>
+    <p>2楼 小明 2017-8-14 21:33 asfadegvrgerhb额头合并儿童和万该房屋<a href="#" id="reply"><span>回复此楼</span></a></p>
+    <hr/>
+    <p>3楼 小红 2017-8-14 21:35 aartbhrtgf广度srthbrrfvsfarthrdegvr<a href="#" id="reply"><span>回复此楼</span></a></p>
+    <hr/>
+    <p>4楼 小黄 2017-8-14 21:36 trhnjytmjnutyrygmk<a href="#" id="reply"><span>回复此楼</span></a></p>
+    <hr/>
+    <p>5楼 小蓝 2017-8-14 21:39 wsrhrtjytkj<a href="#" id="reply"><span>回复此楼</span></a></p>
+    <hr/>
+    <p>6楼 小紫 2017-8-14 21:53 rtnjtymkjnutymk<a href="#" id="reply"><span>回复此楼</span></a></p>
+    <hr/>
+    <div class="modal fade in" id="replymodal">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            	<div class="modal-header">
+                	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                	<h4 class="modal-title">回复帖子</h4>
+            	</div>
+	            <div class="modal-body">
+	            	<form role="form">
+	            		<div class="form-group">
+	            			<textarea class="form-control" rows="4" name="content" id="content" placeholder="内容"></textarea>
+	            		</div>
+	            	</form>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                <button type="button" class="btn btn-primary" onclick="new_post()">保存</button>
+	            </div>
+        	</div>
+    	</div>
+    </div>
 {% endblock %}

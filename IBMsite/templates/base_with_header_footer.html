@@ -87,6 +87,13 @@
         });
     }
 </script>
+<script type="text/javascript">
+    $(window).on('load',function() {
+        $('a#reply').click(function(){
+            $('#replymodal').modal('show');
+        });
+    });
+</script>
 {% endblock %}
 {% block title %}主页{% endblock %}
 {% block body %}
