@@ -1,0 +1,6 @@
+增加comment_modal模型
+实现回复主题的功能,但后期出现小bug,views中处理分页时返回return_posts时为空值
+把application和member加入到admin中,进行管理
+扩展admin的模板,实现增加超链接功能,点击超链接即可发送邮件给该applicant
+回复楼层时,还没有实现获取楼层的层数返回给后台
+准备实现点击人物,跳出人物信息和私信按钮

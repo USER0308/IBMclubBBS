@@ -5,3 +5,4 @@ from manager_models import *
 from post_models import *
 from sign_models import *
 from JuncheePaginator import *
+from comment_models import *

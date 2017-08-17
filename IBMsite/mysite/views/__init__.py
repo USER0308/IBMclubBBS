@@ -7,3 +7,4 @@ from forum_views import *
 from new_post_views import *
 from sign_views import *
 from post_detail_views import *
+from comment_views import *

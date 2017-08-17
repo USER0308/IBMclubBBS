@@ -1,31 +1,84 @@
 {% extends "base_with_header_footer.html" %}
 {% block main-middle %}
-<div class="date">
-    {% if post.time %}
-        {{ post.time }}
-    {% endif %}
-</div>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.author }}发表在{{ post.section }}板块  <a href="#" id="reply"><span>回复此楼</span></a></p>
-    <br/>
-    <p>{{ post.content|linebreaks }}</p>
-    <hr/>
-    <p>2楼 小明 2017-8-14 21:33 asfadegvrgerhb额头合并儿童和万该房屋<a href="#" id="reply"><span>回复此楼</span></a></p>
-    <hr/>
-    <p>3楼 小红 2017-8-14 21:35 aartbhrtgf广度srthbrrfvsfarthrdegvr<a href="#" id="reply"><span>回复此楼</span></a></p>
-    <hr/>
-    <p>4楼 小黄 2017-8-14 21:36 trhnjytmjnutyrygmk<a href="#" id="reply"><span>回复此楼</span></a></p>
-    <hr/>
-    <p>5楼 小蓝 2017-8-14 21:39 wsrhrtjytkj<a href="#" id="reply"><span>回复此楼</span></a></p>
-    <hr/>
-    <p>6楼 小紫 2017-8-14 21:53 rtnjtymkjnutymk<a href="#" id="reply"><span>回复此楼</span></a></p>
-    <hr/>
-    <div class="modal fade in" id="replymodal">
+	
+	<div class="panel panel-default">
+		<div class="panel-heading" id="theme">主题: {{ post.theme }} </div>
+		<div class="panel-body"><div class="well well-lg">{{ post.content|linebreaks }}</div></div>
+		<div class="panel-footer">由 <a href="#" id="member_info">{{ post.author }}</a> 于 {{ post.time }} 发表在 {{ post.section }} 板块  <a href="#" id="reply_theme"><span>回复楼主</span></a></div>
+	</div>
+	{% for comment in comments %}
+    <div class="panel panel-default">
+		<div class="panel-heading">{{ comment.floor }}楼: </div>
+		<div class="panel-body"><div class="well well-sm">{{ comment.content }}</div></div>
+		<div class="panel-footer">由 <a href="#" id="member_info">{{ comment.author }}</a> 于 {{ comment.time }} 发表  <a href="#" id="reply_comment" data-toggle="modal" data-target="#reolyfloormodal"><span>回复此楼</span></a></div>
+	</div>
+	<script type="text/javascript">//reply theme modal show
+	    $(window).on('load',function() {
+	        $('a#reply_theme').click(function(){
+	            $('#replythememodal').modal('show');
+	        });
+	    });
+	</script>
+	<script type="text/javascript">//reply theme
+	    function new_theme_comment() {
+	        var id = "{{ post.post_id|safe }}";
+	        var content = $('#content').val();
+
+	        $.ajax({
+	            url: '/mysite/comment/',
+	            type: "POST",
+	            headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
+	            data: {'id': id,
+	                    'content': content,
+	                },
+	            dataType: 'json',
+	            timeout :3000,
+	            success: function(result) {
+	                if(result.status == "200")
+	                    // alert(result.status);
+	                    $('#replymodal').modal('hide');
+	                    window.location.reload();
+	            }
+	        });
+	    }
+	</script>
+
+	<script type="text/javascript">
+		$('#replyfloormodal').on('show.bs.modal',function(){
+			alert("show");
+		})
+
+	</script>
+
+
+	<script type="text/javascript">//member_info
+		$(window).on('load',function() {
+        	$('a#member_info').click(function(){
+            	$('#memberinfomodal').modal('show');
+        	});
+    	});
+	</script>
+	<!-- <div class="panel panel-default">
+		<div class="panel-heading">{{ i }}楼: </div>
+		<div class="panel-body">
+			<div class="well well-lg">
+			<div ><blockquote>
+				由 小明 于 {{ post.time }} 发表
+				asfadgvdergrpekhblotjmbinlggvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotj
+			</blockquote></div>
+			asfadgvdergrpekhblotjmbinlg
+			</div>
+		</div>
+		<div class="panel-footer">由 小红 于 {{ post.time }} 发表  <a href="#" id="reply"><span>回复此楼</span></a></div>
+	</div> -->
+	{% endfor %}
+
+    <div class="modal fade in" id="replythememodal">
     	<div class="modal-dialog">
         	<div class="modal-content">
             	<div class="modal-header">
                 	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                	<h4 class="modal-title">回复帖子</h4>
+                	<h4 class="modal-title">回复主题</h4>
             	</div>
 	            <div class="modal-body">
 	            	<form role="form">
@@ -36,9 +89,31 @@
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	                <button type="button" class="btn btn-primary" onclick="new_post()">保存</button>
+	                <button type="button" class="btn btn-primary" onclick="new_theme_comment()">保存</button>
 	            </div>
         	</div>
     	</div>
     </div>
+    <div class="modal fade in" id="replyfloormodal">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            	<div class="modal-header">
+                	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                	<h4 class="modal-title">回复楼层</h4>
+            	</div>
+	            <div class="modal-body">
+	            	<form role="form">
+	            		<div class="form-group">
+	            			<textarea class="form-control" rows="4" name="content" id="content" placeholder="内容"></textarea>
+	            		</div>
+	            	</form>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                <button type="button" class="btn btn-primary" ">保存</button>
+	            </div>
+        	</div>
+    	</div>
+    </div>
+{% include "member_info_templates.html" %}
 {% endblock %}

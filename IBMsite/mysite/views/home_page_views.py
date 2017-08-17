@@ -23,6 +23,7 @@ def home_page(request,type='main',page='1'):
 	get_costs = Sign_Model.objects.get(email=get_email).cost
 	#show post
 	all_posts = Post_Model.objects.all()
+	return_posts = all_posts
 	if type=='main':
 		return_posts = all_posts.order_by('-time')
 		for post in return_posts:

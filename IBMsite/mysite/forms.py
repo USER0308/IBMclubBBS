@@ -118,9 +118,9 @@ class Login_Form(forms.Form):
 	def clean_password(self):
 		get_email = self.cleaned_data.get("email")
 		get_password = self.cleaned_data.get("password")
-		password_is_correct = Member_Model.objects.filter(email=get_email,password=get_password).exists()
-		if not password_is_correct:
-			raise forms.ValidationError('email or password is wrong')
+		# password_is_correct = Member_Model.objects.filter(email=get_email,password=get_password).exists()
+		# if not password_is_correct:
+		# 	raise forms.ValidationError('email or password is wrong')
 		return get_password
 
 class Change_Info_Form(forms.Form):

@@ -8,21 +8,22 @@
     overflow:hidden;
 }
 #main .main-left{
-    width:20%;
+    width:18%;
     height:600px;
     /*background:yellow;*/
     float:left;
+    padding-right: 3%;
 }
 #main .main-middle{
     width:60%;
-    background:pink;
+   /* background:pink;*/
     float:left;
 }
 #main .main-middle #post_list {
     text-align: center;
 }
 #main .main-right{
-    width:20%;
+    width:18%;
     height:300px;
     /*background:green;*/
     float:right;
@@ -30,7 +31,7 @@
 #footer{
     width:80%;
     height:50px;
-    background:pink;
+    /*background:pink;*/
     margin:0 auto;
 }
 </style>
@@ -86,13 +87,6 @@
             }
         });
     }
-</script>
-<script type="text/javascript">
-    $(window).on('load',function() {
-        $('a#reply').click(function(){
-            $('#replymodal').modal('show');
-        });
-    });
 </script>
 {% endblock %}
 {% block title %}主页{% endblock %}
