@@ -1,0 +1,9 @@
+{% extends "base_with_header_footer.html" %}
+{% block main-middle %}
+	welocme, {{ user }}	this is share list
+	<form enctype="multipart/form-data" action="/mysite/home_page/upload/" method="post">  
+	{% csrf_token %} 
+	<p>File: <input type="file" name="file"></p>  
+	<p><input type="submit" value="Upload"></p>  
+	</form>
+{% endblock %}

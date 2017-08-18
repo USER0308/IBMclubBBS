@@ -33,6 +33,8 @@ def new_post(request):
 				get_post.author = user.email
 			get_post.save()
 			return HttpResponse(json.dumps({"status":"200"}))
+		else:
+			return HttpResponse(json.dumps({"status":"500"}))
 	else:
 		return render(request,'new_post_templates.html')
 	

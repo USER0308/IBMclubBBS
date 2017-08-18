@@ -23,33 +23,20 @@ def home_page(request,type='main',page='1'):
 	get_costs = Sign_Model.objects.get(email=get_email).cost
 	#show post
 	all_posts = Post_Model.objects.all()
-	return_posts = all_posts
+	return_posts = all_posts.order_by('-time')
 	if type=='main':
 		return_posts = all_posts.order_by('-time')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
 	elif type=='scholar':
-		return_posts = all_posts.filter(section=u'学术讨论区')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
+		return_posts = all_posts.filter(section=u'学术讨论区').order_by('-time')
 	elif type=='department':
-		return_posts = all_posts.filter(section=u'部门交流区')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
+		return_posts = all_posts.filter(section=u'部门交流区').order_by('-time')
 	elif type=='chat':
-		return_posts = all_posts.filter(section=u'灌水区')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
+		return_posts = all_posts.filter(section=u'灌水区').order_by('-time')
 	elif type=='jinghua':
-		return_posts = all_posts.filter(section=u'精华区')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
+		return_posts = all_posts.filter(section=u'精华区').order_by('-time')
 	elif type=='share':
-		return_posts = all_posts.filter(section=u'资源共享区')
-		for post in return_posts:
-			print post.post_id,post.author,post.time,post.theme,post.section,post.content
-	print("type=="+type)
-	limit = 3
+		return_posts = all_posts.filter(section=u'资源共享区').order_by('-time')
+	limit = 5
 	paginator = JuncheePaginator(return_posts, limit)
 	try:
 		return_posts = paginator.page(page)

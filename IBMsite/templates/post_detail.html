@@ -9,68 +9,20 @@
 	{% for comment in comments %}
     <div class="panel panel-default">
 		<div class="panel-heading">{{ comment.floor }}楼: </div>
-		<div class="panel-body"><div class="well well-sm">{{ comment.content }}</div></div>
-		<div class="panel-footer">由 <a href="#" id="member_info">{{ comment.author }}</a> 于 {{ comment.time }} 发表  <a href="#" id="reply_comment" data-toggle="modal" data-target="#reolyfloormodal"><span>回复此楼</span></a></div>
-	</div>
-	<script type="text/javascript">//reply theme modal show
-	    $(window).on('load',function() {
-	        $('a#reply_theme').click(function(){
-	            $('#replythememodal').modal('show');
-	        });
-	    });
-	</script>
-	<script type="text/javascript">//reply theme
-	    function new_theme_comment() {
-	        var id = "{{ post.post_id|safe }}";
-	        var content = $('#content').val();
-
-	        $.ajax({
-	            url: '/mysite/comment/',
-	            type: "POST",
-	            headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
-	            data: {'id': id,
-	                    'content': content,
-	                },
-	            dataType: 'json',
-	            timeout :3000,
-	            success: function(result) {
-	                if(result.status == "200")
-	                    // alert(result.status);
-	                    $('#replymodal').modal('hide');
-	                    window.location.reload();
-	            }
-	        });
-	    }
-	</script>
-
-	<script type="text/javascript">
-		$('#replyfloormodal').on('show.bs.modal',function(){
-			alert("show");
-		})
-
-	</script>
-
-
-	<script type="text/javascript">//member_info
-		$(window).on('load',function() {
-        	$('a#member_info').click(function(){
-            	$('#memberinfomodal').modal('show');
-        	});
-    	});
-	</script>
-	<!-- <div class="panel panel-default">
-		<div class="panel-heading">{{ i }}楼: </div>
-		<div class="panel-body">
-			<div class="well well-lg">
-			<div ><blockquote>
-				由 小明 于 {{ post.time }} 发表
-				asfadgvdergrpekhblotjmbinlggvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotjgvdergrpekhblotj
-			</blockquote></div>
-			asfadgvdergrpekhblotjmbinlg
+			<div class="panel-body">
+				<div class="well well-sm">
+					{% if comment.parent_floor is None %}
+						{{ comment.content }}
+					{% else %}
+						回复 {{ comment.parent_floor.floor }} 楼:
+						<blockquote>{{ comment.parent_floor.content }}</blockquote>
+						{{ comment.content }}
+					{% endif %}
+				</div>
 			</div>
-		</div>
-		<div class="panel-footer">由 小红 于 {{ post.time }} 发表  <a href="#" id="reply"><span>回复此楼</span></a></div>
-	</div> -->
+		<div class="panel-footer">由 <a href="#" id="member_info">{{ comment.author }}</a> 于 {{ comment.time }} 发表  <a href="#" id="reply_comment" onclick="reply_comment_click({{ comment.floor }})" ><span>回复此楼</span></a></div>
+	</div>
+
 	{% endfor %}
 
     <div class="modal fade in" id="replythememodal">
@@ -83,7 +35,7 @@
 	            <div class="modal-body">
 	            	<form role="form">
 	            		<div class="form-group">
-	            			<textarea class="form-control" rows="4" name="content" id="content" placeholder="内容"></textarea>
+	            			<textarea class="form-control" rows="4" name="content" id="theme_content" placeholder="内容"></textarea>
 	            		</div>
 	            	</form>
 	            </div>
@@ -104,16 +56,107 @@
 	            <div class="modal-body">
 	            	<form role="form">
 	            		<div class="form-group">
-	            			<textarea class="form-control" rows="4" name="content" id="content" placeholder="内容"></textarea>
+	            			<textarea class="form-control" rows="4" name="floor_content" id="floor_content" placeholder="内容"></textarea>
 	            		</div>
 	            	</form>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	                <button type="button" class="btn btn-primary" ">保存</button>
+	                <button type="button" class="btn btn-primary" onclick="submit_comment()">保存</button>
 	            </div>
         	</div>
     	</div>
     </div>
+    <script type="text/javascript">//reply theme modal show
+	    $(window).on('load',function() {
+	        $('a#reply_theme').click(function(){
+	            $('#replythememodal').modal('show');
+	        });
+	    });
+	</script>
+	<script type="text/javascript">//reply theme
+	    function new_theme_comment() {
+	        var id = "{{ post.post_id|safe }}";
+	        var theme_content = $('#theme_content').val();
+
+	        $.ajax({
+	            url: '/mysite/comment/',
+	            type: "POST",
+	            headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
+	            data: {'id': id,
+	            		'parent_floor': 1,
+	                    'content': theme_content,
+	                },
+	            dataType: 'json',
+	            timeout :3000,
+	            success: function(result) {
+	                if(result.status == "200")
+	                    // alert(result.status);
+	                    $('#replymodal').modal('hide');
+	                    window.location.reload();
+	            }
+	        });
+	    }
+	</script>
+
+	<script type="text/javascript">
+	 	var click_floor = 0;
+		function reply_comment_click(obj) {
+			click_floor = obj;
+			$('#replyfloormodal').modal('show');
+		}
+	</script>
+
+	<script type="text/javascript">//submit comment to server
+		function submit_comment(){
+			var id = "{{ post.post_id|safe }}";
+			var parent_floor = click_floor;
+			var floor_content = $('#floor_content').val();
+			$.ajax({
+                url: '/mysite/comment/',
+                type: 'POST',
+                data: {'csrfmiddlewaretoken': '{{ csrf_token }}',
+                		'id': id,
+                		'parent_floor': parent_floor,
+                		'content': floor_content},
+                dataType: 'json',
+                timeout: 3000,
+                success: function(result) {
+                    if(result.status == "200") {
+                        $('#replyfloormodal').modal('hide');
+                        window.location.reload();
+                    }else {
+                        alert("something wrong");
+                    }
+                }
+            });
+
+		}
+	</script>
+
+	<script type="text/javascript">//member_info
+		var author_email;
+		$(window).on('load',function() {
+        	$('a#member_info').click(function(){
+        		var author_name = $(this).html();
+        		$.ajax({
+        			url: '/mysite/member_info/',
+        			type: 'POST',
+        			data: {'csrfmiddlewaretoken': '{{ csrf_token }}',
+        				'author_name': author_name},
+        			dataType: 'json',
+        			timeout: 3000,
+        			success: function(result) {
+        				var info = "<div style=\"text-align:center\">email:"+result.email+"<br/>"+"nick_name:"+result.nick_name+"<br/>"+"department:"+result.department+"<br/>"+"phone_number:"+result.phone_number+"<br/>"+"address:"+result.address+"</div>";
+        				 //alert(info);
+        				$('#memberinfomodal .modal-dialog .modal-content .modal-body .form-group').html(info);
+        				author_email = result.email;
+        				$('#memberinfomodal').modal('show');
+        			}
+        		});
+            	
+        	});
+    	});
+	</script>
 {% include "member_info_templates.html" %}
 {% endblock %}

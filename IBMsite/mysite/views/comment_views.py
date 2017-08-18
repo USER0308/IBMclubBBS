@@ -19,8 +19,22 @@ def comment(request):
 		id = request.POST["id"]
 		get_post= get_object_or_404(Post_Model, post_id=id)
 		floor_num = get_post.comment_model_set.all().count()
+		get_parent_floor = request.POST["parent_floor"]
 		get_content = request.POST["content"]
-		Comment_Model.objects.create(ref_post=get_post,floor=int(floor_num)+2,author=get_nick_name,content=get_content)
+		if int(get_parent_floor) == 1 :
+			print("in if")
+			Comment_Model.objects.create(ref_post=get_post,
+										floor=int(floor_num)+2,
+										author=get_nick_name,
+										content=get_content)
+		else :
+			print("in else")
+			Comment_Model.objects.create(ref_post=get_post,
+										floor=int(floor_num)+2,
+										parent_floor=get_object_or_404(Comment_Model,ref_post=get_post,floor=int(get_parent_floor)),
+										author=get_nick_name,
+										content=get_content)
+
 		print(id+get_nick_name+get_content)
 		return HttpResponse(json.dumps({"status":"200"}))
 		#if not is_exists:
