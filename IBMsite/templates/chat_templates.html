@@ -1,4 +1,30 @@
 {% extends "base_with_header_footer.html" %}
+    {% block main-left %}
+        {% for item in query_set %}
+            <div class="list-group">
+                <button type="button" class="list-group-item">
+                    <span class="badge">14</span>
+                    msg_from:{{ item.msg_from.email }}
+                </button>
+                <button type="button" class="list-group-item">
+                    <span class="badge">14</span>
+                    msg_to:{{ item.msg_to.email }}
+                </button>
+                <button type="button" class="list-group-item">
+                    <span class="badge">14</span>
+                    msg_time:{{ item.time|date:"Y-m-d H:i:s" }}
+                </button>
+                <button type="button" class="list-group-item">
+                    <span class="badge">14</span>
+                    msg_read_status:{{ item.read_status }}
+                </button>
+                <button type="button" class="list-group-item">
+                    <span class="badge">14</span>
+                    msg_content:{{ item.content }}
+                </button>
+            </div>
+        {% endfor %}
+    {% endblock %}
 {% block main-middle %}
 <div>
     <div class="leftd">

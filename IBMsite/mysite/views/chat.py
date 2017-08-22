@@ -16,4 +16,4 @@ def chat(request):
     obj = get_object_or_404(Member_Model,email=get_email)
     query_set = Chat_Model.objects.filter(msg_to=obj)
     print query_set
-    return render(request,"chat_templates.html")
+    return render(request,"chat_templates.html",{'query_set': query_set})
