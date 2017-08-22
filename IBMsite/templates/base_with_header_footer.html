@@ -35,27 +35,7 @@
     margin:0 auto;
 }
 </style>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('a#sign').click(function(){
-            $.ajax({
-                url: '/mysite/sign/',
-                type: 'POST',
-                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
-                dataType: 'json',
-                timeout: 10000,
-                success: function(result) {
-                    if(result.data == "post_success") {
-                        alert("sign success");
-                        window.location.reload();
-                    }else {
-                        alert("you have signed today,please come tomorrow");
-                    }
-                }
-            });
-        });
-    });
-</script>
+
 
 {% endblock %}
 {% block title %}主页{% endblock %}
@@ -84,6 +64,27 @@
     </div>
     </div>
 </nav>
+<script type="text/javascript">
+    //$(document).ready(function(){
+        $('a#sign').click(function(){
+            $.ajax({
+                url: '/mysite/sign/',
+                type: 'POST',
+                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                dataType: 'json',
+                timeout: 10000,
+                success: function(result) {
+                    if(result.data == "post_success") {
+                        alert("sign success");
+                        window.location.reload();
+                    }else {
+                        alert("you have signed today,please come tomorrow");
+                    }
+                }
+            });
+      //  });
+    });
+</script>
 <div id="main">
     <div class="main-left">
         {% block main-left %}{% endblock %}

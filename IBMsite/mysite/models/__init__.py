@@ -6,3 +6,5 @@ from post_models import *
 from sign_models import *
 from JuncheePaginator import *
 from comment_models import *
+from member_upload_models import *
+from chat_models import *

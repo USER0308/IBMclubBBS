@@ -1,9 +1,49 @@
 {% extends "base_with_header_footer.html" %}
 {% block main-middle %}
 	welocme, {{ user }}	this is share list
+	<br/>
 	<form enctype="multipart/form-data" action="/mysite/home_page/upload/" method="post">  
 	{% csrf_token %} 
-	<p>File: <input type="file" name="file"></p>  
+	<p>Upload File: <input type="file" name="file" ></p>  
 	<p><input type="submit" value="Upload"></p>  
 	</form>
+	<br/>
+	{% for upload_file in upload_files %}
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    name : <a href="javascript:void(0);">{{ upload_file.file_path }}</a>
+	    <br/>
+	    size: {{ upload_file.file_path.size }} Kb
+	    
+	  </div>
+	  <div class="panel-footer">由 {{ upload_file.user.email }} 于 {{ upload_file.upload_time }} 上传</div>
+	</div>
+		
+	{% endfor %}
+	<script type="text/javascript">
+		$(function(){
+            $(".panel-body a").click(function(){
+                // $('.nav li').removeClass("active");
+                // $(this).addClass("active");
+                file_name = $(this).html();
+                $.ajax({
+                	url: '/mysite/home_page/download/',
+                    type: "POST",
+                    headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
+                    data: {'file_name': file_name},
+                    dataType: 'json',
+                    timeout :3000,
+                    success: function(result) {
+                    	// alert(result.target_path);
+                    	// window.location.href="127.0.0.1:8000/media/debug.log"
+                        // if(result.status == "200")
+                        //     alert(result.status);
+                            // $('#replymodal').modal('hide');
+                            // window.location.reload();
+                    }
+                });
+            });
+
+        })
+	</script>
 {% endblock %}

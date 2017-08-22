@@ -1,0 +1,39 @@
+17-01-05 15:26:57 F:../DrcomClient-ppoe/main.cpp L:32 C:test
+17-01-05 15:26:57 Object::connect: No such slot Drcomauthsvr::getReturn()
+17-01-05 15:26:57 F:../DrcomClient-ppoe/drcomauthsvr.cpp L:101 C:export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/user0308/??/DrClient/
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SET 81X 001 
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM 802.1X ???????????????
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ?????????????????.
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:VER 0.8ldrv1.0(U62.R110908)(1x)Build(k42.20160426)
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:AUT 00000001
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drppoe.cpp L:559 C:
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SUC 
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:ADP 1 IP:110.64.88.38|GW:|MAC:80FA5B1E062F@enp4s0f1
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SET 81X 001 
+17-01-05 15:26:58 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SUC 
+17-01-05 15:26:59 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SUC 
+17-01-05 15:26:59 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SUC 
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ???802.1x??????????(0)......
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ????802.1x??????????1(0)......
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ????802.1x??????????2(0)......
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM 802.1x ????????
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ?????�??????????????...
+
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ?????�????????????????????�?????...
+
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:LGI OK 201530612149 0 0 0 0 Null 110.64.88.38 202.38.210.131 80FA5B1E062F
+17-01-05 15:27:00 F:../DrcomClient-ppoe/updatemanager.cpp L:27 C:/DRCLIENT/UPDATE?TIME=20170105152700&TYPE=0000&KEY=&HASH=&VER=1.0.0.201111111.Q.L.A&RND=740684&CHK=0a56a84e&M=887601c5585a297d021021e82ac40d10
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM 
+17-01-05 15:27:00 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SYM TXT ?????????1??5?????????????????????????????????????????????????????????http://web.scut.edu.cn/2017/0104/c705a155072/page.htm
+17-01-05 15:27:02 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:VER 0.8ldrv1.0(U64.R110908)(1x)Build(k42.20160426)
+17-01-05 15:27:10 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:LGI STM 11 0 0 30682 104063763 0 4294967295 4294967295
+17-01-05 15:27:22 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:LGI STM 23 0 0 30682 104063763 0 4294967295 4294967295
+17-01-05 15:27:34 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:LGI STM 35 0 0 30682 104063763 0 4294967295 4294967295
+17-01-05 15:27:38 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:SUC 
+17-01-05 15:27:38 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ????802.1x???????????(0)......
+17-01-05 15:27:38 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM 802.1x ????????
+17-01-05 15:27:38 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:LGO OK 201530612149 0 0 0 38 Null
+17-01-05 15:27:38 F:../DrcomClient-ppoe/drauthcomm.cpp L:168 C:STM ?????????????0??0??38??
+
+17-01-05 15:27:40 F:../DrcomClient-ppoe/drppoe.cpp L:559 C:
+17-01-05 15:27:40 QProcess: Destroyed while process is still running.

@@ -12,3 +12,5 @@ from send_email import *
 from member_info import *
 from share import *
 from upload import *
+from download import *
+from chat import *
