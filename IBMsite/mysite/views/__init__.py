@@ -14,3 +14,4 @@ from share import *
 from upload import *
 from download import *
 from chat import *
+from get_messages import *
