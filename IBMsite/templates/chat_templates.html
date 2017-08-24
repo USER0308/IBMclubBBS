@@ -58,7 +58,7 @@
     </nav>
 </div>
 <div class="main-middle-middle" style="background-color: #65ffa7;float: inherit;margin-bottom: 20px">
-    <div class="row pre-scrollable">
+    <div class="row pre-scrollable" style="overflow-y:scroll" id="chatter">
         <div class="leftd">
             <span ng-class="leftd_h">
                 <img ng-src="./img/c_pic.pn" />
@@ -99,7 +99,7 @@
                 这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!这还差不多!
             </div>
         </div>
-        <div class="rightd">
+        <div class="rightd" id="last_one">
             <span ng-class="rightd_h">
                 <img ng-src="./img/u_pic.pn" />
             </span>
@@ -110,13 +110,33 @@
     </div>
 </div>
 <div class="main-middle-bottom">
-            <textarea class="form-control" rows="5" placeholder="Enter 发送"></textarea>
+            <textarea class="form-control" rows="5" placeholder="Enter 发送" onkeydown="sendMsg(event)"></textarea>
 </div>
 <script>
-  document.getElementsByClassName('textarea').onkeydown=function(e){
-      if (e.KeyCode == "13"){
-          alert('回车键.');
-        }
+  function sendMsg(event) {
+      if (event.keyCode == 13) {
+          event.preventDefault()
+//          <div class="rightd">
+//            <div class="speech right" ng-class="speech left">
+//                嘻嘻嘻嘻。。。。。。
+//            </div>
+//        </div>
+          var msg = $('textarea').val()
+          $('textarea').val('')
+
+          var border_div = document.getElementById("chatter")
+          var outer_div = document.getElementById("last_one")
+          var insert_div = outer_div.cloneNode(true)
+          insert_div.children[1].innerHTML = msg
+          border_div.insertBefore(insert_div,outer_div.nextSibling)
+          outer_div.removeAttribute("id")
+          var div = document.getElementById("chatter")
+          div.scrollTop = div.scrollHeight
+      }else {
+          var obj = document.getElementsByClassName("row pre-scrollable")
+          console.log(obj)
+      }
+
   }
 </script>
 

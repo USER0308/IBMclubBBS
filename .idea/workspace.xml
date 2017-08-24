@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff75d821-b3fb-445a-81e1-23b104c8d988" name="Default" comment="download upload file ,download file ,show post detail">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IBMsite/media/wps-office_10.1.0.5672-a21_x86_64.tar.xz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/DjangoProjects.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html" afterPath="$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IBMsite/templates/chat_templates.html" afterPath="$PROJECT_DIR$/IBMsite/templates/chat_templates.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DjangoProjects$manage.coverage" NAME="manage Coverage Results" MODIFIED="1503386984274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IBMsite" />
+    <SUITE FILE_PATH="coverage/DjangoProjects$manage.coverage" NAME="manage Coverage Results" MODIFIED="1503491068873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IBMsite" />
     <SUITE FILE_PATH="coverage/DjangoProjects$upload.coverage" NAME="upload Coverage Results" MODIFIED="1503364577591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IBMsite/mysite/views" />
   </component>
   <component name="FileEditorManager">
@@ -25,7 +21,7 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IBMsite/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="0">
               <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
               <folding />
             </state>
@@ -35,7 +31,7 @@
       <file leaf-file-name="post_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IBMsite/templates/post_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="-902">
               <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
               <folding>
                 <marker date="1503124910690" expanded="true" signature="5754:5771" ph="..." />
@@ -48,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/post_detail_views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,40 +53,32 @@
       <file leaf-file-name="chat_templates.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IBMsite/templates/chat_templates.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
+            <state relative-caret-position="448">
+              <caret line="133" column="42" lean-forward="false" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="e#4123#4480#0" expanded="false" />
-                <element signature="e#4503#4695#0" expanded="false" />
-                <element signature="e#4717#4884#0" expanded="false" />
-                <element signature="e#4906#5183#0" expanded="false" />
-                <element signature="e#5212#5394#0" expanded="false" />
-                <element signature="e#5422#5603#0" expanded="false" />
-                <element signature="e#5618#5902#0" expanded="false" />
-                <element signature="e#5924#6092#0" expanded="false" />
-                <element signature="e#6113#6280#0" expanded="false" />
-                <element signature="e#6294#6330#0" expanded="false" />
-                <element signature="e#6345#6382#0" expanded="false" />
-                <element signature="e#6394#6445#0" expanded="false" />
-                <element signature="e#6458#6511#0" expanded="false" />
-                <element signature="e#6525#6629#0" expanded="false" />
-                <element signature="e#6647#6696#0" expanded="false" />
-                <element signature="e#6710#6815#0" expanded="false" />
-                <element signature="e#6834#6883#0" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#2;n#!!top" expanded="false" />
+                <element signature="e#4958#5315#0" expanded="false" />
+                <element signature="e#5338#5530#0" expanded="false" />
+                <element signature="e#5552#5719#0" expanded="false" />
+                <element signature="e#5741#6018#0" expanded="false" />
+                <element signature="e#6047#6229#0" expanded="false" />
+                <element signature="e#6257#6438#0" expanded="false" />
+                <element signature="e#6453#6737#0" expanded="false" />
+                <element signature="e#6759#6927#0" expanded="false" />
+                <element signature="e#6948#7115#0" expanded="false" />
+                <element signature="e#7129#7165#0" expanded="false" />
+                <element signature="e#7180#7217#0" expanded="false" />
+                <element signature="e#7229#7280#0" expanded="false" />
+                <element signature="e#7293#7346#0" expanded="false" />
+                <element signature="e#7360#7464#0" expanded="false" />
+                <element signature="e#7482#7531#0" expanded="false" />
+                <element signature="e#7545#7650#0" expanded="false" />
+                <element signature="e#7669#7718#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_with_header_footer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-506">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -98,8 +86,8 @@
       <file leaf-file-name="chat_models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/chat_models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="59" lean-forward="true" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+            <state relative-caret-position="154">
+              <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -153,7 +141,7 @@
     <option name="height" value="1092" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -166,45 +154,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DjangoProjects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoProjects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProjects" type="462c0819:PsiDirectoryNode" />
-              <item name="IBMsite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoProjects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProjects" type="462c0819:PsiDirectoryNode" />
-              <item name="IBMsite" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoProjects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProjects" type="462c0819:PsiDirectoryNode" />
-              <item name="IBMsite" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoProjects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoProjects" type="462c0819:PsiDirectoryNode" />
-              <item name="IBMsite" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -304,7 +254,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -363,159 +312,88 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/upload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#82#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/templates/share_templates.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/download.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/application_views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/templates/share_templates.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/member_upload_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/__init__.py">
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/post_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
           <folding>
-            <element signature="e#0#31#0" expanded="false" />
+            <marker date="1503124910690" expanded="true" signature="5754:5771" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/application_models.py">
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/post_detail_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="32" />
+        <state relative-caret-position="176">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/post_models.py">
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="33" />
+        <state relative-caret-position="550">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/__init__.py">
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/chat_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/chat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
           <folding>
-            <element signature="e#0#32#0" expanded="false" />
+            <element signature="e#20#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/upload.py">
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/chat_templates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        <state relative-caret-position="2552">
+          <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
           <folding>
-            <element signature="e#20#82#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#2;n#!!top" expanded="false" />
+            <element signature="e#4958#5315#0" expanded="false" />
+            <element signature="e#5338#5530#0" expanded="false" />
+            <element signature="e#5552#5719#0" expanded="false" />
+            <element signature="e#5741#6018#0" expanded="false" />
+            <element signature="e#6047#6229#0" expanded="false" />
+            <element signature="e#6257#6438#0" expanded="false" />
+            <element signature="e#6453#6737#0" expanded="false" />
+            <element signature="e#6759#6927#0" expanded="false" />
+            <element signature="e#6948#7115#0" expanded="false" />
+            <element signature="e#7129#7165#0" expanded="false" />
+            <element signature="e#7180#7217#0" expanded="false" />
+            <element signature="e#7229#7280#0" expanded="false" />
+            <element signature="e#7293#7346#0" expanded="false" />
+            <element signature="e#7360#7464#0" expanded="false" />
+            <element signature="e#7482#7531#0" expanded="false" />
+            <element signature="e#7545#7650#0" expanded="false" />
+            <element signature="e#7669#7718#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/new_post_views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/comment_views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="3" column="156" lean-forward="false" selection-start-line="3" selection-start-column="156" selection-end-line="3" selection-end-column="156" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/comment_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IBMsite/templates/member_info_templates.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -539,8 +417,209 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/post_detail_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="220">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/chat_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="59" lean-forward="true" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/chat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <folding>
+            <element signature="e#20#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/chat_templates.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2552">
+          <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#2;n#!!top" expanded="false" />
+            <element signature="e#4958#5315#0" expanded="false" />
+            <element signature="e#5338#5530#0" expanded="false" />
+            <element signature="e#5552#5719#0" expanded="false" />
+            <element signature="e#5741#6018#0" expanded="false" />
+            <element signature="e#6047#6229#0" expanded="false" />
+            <element signature="e#6257#6438#0" expanded="false" />
+            <element signature="e#6453#6737#0" expanded="false" />
+            <element signature="e#6759#6927#0" expanded="false" />
+            <element signature="e#6948#7115#0" expanded="false" />
+            <element signature="e#7129#7165#0" expanded="false" />
+            <element signature="e#7180#7217#0" expanded="false" />
+            <element signature="e#7229#7280#0" expanded="false" />
+            <element signature="e#7293#7346#0" expanded="false" />
+            <element signature="e#7360#7464#0" expanded="false" />
+            <element signature="e#7482#7531#0" expanded="false" />
+            <element signature="e#7545#7650#0" expanded="false" />
+            <element signature="e#7669#7718#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/share_templates.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/application_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/share_templates.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/member_upload_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="40" lean-forward="true" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/application_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/post_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/new_post_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/comment_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="3" column="156" lean-forward="false" selection-start-line="3" selection-start-column="156" selection-end-line="3" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/comment_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/member_info_templates.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/mysite/views/post_detail_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -555,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IBMsite/mysite/models/chat_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="59" lean-forward="true" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+        <state relative-caret-position="154">
+          <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -575,37 +654,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IBMsite/templates/base_with_header_footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
+        <state relative-caret-position="550">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/IBMsite/templates/post_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-902">
+          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <marker date="1503124910690" expanded="true" signature="5754:5771" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/IBMsite/templates/chat_templates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
+        <state relative-caret-position="448">
+          <caret line="133" column="42" lean-forward="false" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#nav#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#4123#4480#0" expanded="false" />
-            <element signature="e#4503#4695#0" expanded="false" />
-            <element signature="e#4717#4884#0" expanded="false" />
-            <element signature="e#4906#5183#0" expanded="false" />
-            <element signature="e#5212#5394#0" expanded="false" />
-            <element signature="e#5422#5603#0" expanded="false" />
-            <element signature="e#5618#5902#0" expanded="false" />
-            <element signature="e#5924#6092#0" expanded="false" />
-            <element signature="e#6113#6280#0" expanded="false" />
-            <element signature="e#6294#6330#0" expanded="false" />
-            <element signature="e#6345#6382#0" expanded="false" />
-            <element signature="e#6394#6445#0" expanded="false" />
-            <element signature="e#6458#6511#0" expanded="false" />
-            <element signature="e#6525#6629#0" expanded="false" />
-            <element signature="e#6647#6696#0" expanded="false" />
-            <element signature="e#6710#6815#0" expanded="false" />
-            <element signature="e#6834#6883#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#2;n#!!top" expanded="false" />
+            <element signature="e#4958#5315#0" expanded="false" />
+            <element signature="e#5338#5530#0" expanded="false" />
+            <element signature="e#5552#5719#0" expanded="false" />
+            <element signature="e#5741#6018#0" expanded="false" />
+            <element signature="e#6047#6229#0" expanded="false" />
+            <element signature="e#6257#6438#0" expanded="false" />
+            <element signature="e#6453#6737#0" expanded="false" />
+            <element signature="e#6759#6927#0" expanded="false" />
+            <element signature="e#6948#7115#0" expanded="false" />
+            <element signature="e#7129#7165#0" expanded="false" />
+            <element signature="e#7180#7217#0" expanded="false" />
+            <element signature="e#7229#7280#0" expanded="false" />
+            <element signature="e#7293#7346#0" expanded="false" />
+            <element signature="e#7360#7464#0" expanded="false" />
+            <element signature="e#7482#7531#0" expanded="false" />
+            <element signature="e#7545#7650#0" expanded="false" />
+            <element signature="e#7669#7718#0" expanded="false" />
           </folding>
         </state>
       </provider>
