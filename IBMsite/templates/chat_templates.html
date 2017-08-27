@@ -22,11 +22,7 @@
             <div class="list-group">
                 {% for sender in msg_list %}
                 <!--<p>{{ sender }}</p>-->
-                <button type="button" class="list-group-item">
-
-                    <span class="badge" id="message_num">{{ sender.list|length }}</span>
-                    from: {{ sender.grouper }}
-                </button>
+                <button type="button" class="list-group-item"><span class="badge" id="message_num">{{ sender.list|length }}</span>from: {{ sender.grouper }}</button>
                 {% endfor %}
             </div>
         <script>
@@ -38,7 +34,7 @@
                     var sub = str.substring(index+2)
                     var arr = new Array("/mysite/get_messages/",sub,"/")
                     var full_url = arr.join("")
-                    alert(full_url)
+                    //alert(full_url)
                     $.ajax({
                         url: full_url,
                         type: 'POST',
@@ -48,11 +44,20 @@
                         success: function(result) {
                             receive_messages = result.receive_messages
                             send_messages = result.send_messages
+                            receive_messages = JSON.parse(receive_messages)
+                            send_messages = JSON.parse(send_messages)
                             console.log(receive_messages)
                             console.log(send_messages)
+                            //alert("success")
+                            insertMessage(receive_messages,send_messages)
+                            //
+                            document.getElementById("chat_dialog").style.display="block";
                         }
                     })
                 })
+                function insertMessage(receive_messages,send_messages) {
+
+                }
             })
         </script>
         <!--{% regroup cities by country as country_list %}-->
@@ -84,5 +89,6 @@
             </nav>
         </div>
     {% block chat_dialog %}
+        {% include "chat_dialog_templates.html" %}
     {% endblock %}
 {% endblock %}

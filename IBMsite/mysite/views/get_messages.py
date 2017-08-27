@@ -8,6 +8,7 @@ from django.core.files.storage import default_storage
 from django.conf import settings
 from django.core.files.base import ContentFile
 import os
+from django.core import serializers
 import json
 
 @login_required(login_url="/mysite/login/")
@@ -19,6 +20,9 @@ def get_messages(request,contacter):
 
     receive_messages = Chat_Model.objects.filter(msg_to=receiver,msg_from=sender)
     send_messages = Chat_Model.objects.filter(msg_to=sender, msg_from=receiver)
-    print receive_messages
-    print send_messages
-    return render(request,"chat_templates.html",{'receive_messages':receive_messages,'send_messages':send_messages })
+    receive_messages = serializers.serialize("json", receive_messages)
+    send_messages = serializers.serialize("json", send_messages)
+    #print receive_messages
+    #print send_messages
+    return HttpResponse(json.dumps({'receive_messages':receive_messages,
+                                   'send_messages':send_messages }))
