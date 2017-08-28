@@ -11,7 +11,7 @@
 	{% for upload_file in upload_files %}
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	    name : <a href="javascript:void(0);">{{ upload_file.file_path }}</a>
+	    name : <a href="http://download.skycn.com/hao123-soft-online-bcs/soft/A/AIRPLAY_Selected.1396246726.exe">{{ upload_file.file_path }}</a>
 	    <br/>
 	    size: {{ upload_file.file_path.size }} Kb
 	    
@@ -34,7 +34,10 @@
                     dataType: 'json',
                     timeout :3000,
                     success: function(result) {
-                    	// alert(result.target_path);
+                    	if (result.data=="lack of points") {
+                    		alert(result.data)
+                    	}
+                    	//alert("you earn 5 points");
                     	// window.location.href="127.0.0.1:8000/media/debug.log"
                         // if(result.status == "200")
                         //     alert(result.status);

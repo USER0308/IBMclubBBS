@@ -1,0 +1,14 @@
+学习资料:
+Python基础教程(第2版)(修订版), 赫特兰
+(略看)标准库 https://docs.python.org/3/library/index.html
+（详看）菜鸟教程: http://www.runoob.com/python/python-tutorial.html
+Python 与 数据库
+mysql, http://www.runoob.com/python/python-mysql.html
+web CGI, , http://www.runoob.com/python/python-cgi.html
+ODBC, https://wiki.python.org/moin/ODBC
+
+Django教程
+http://www.runoob.com/django/django-tutorial.html
+http://www.cnblogs.com/feixuelove1009/p/5823135.html
+http://djangobook.py3k.cn/2.0/
+（最好跟着过一遍）https://tutorial.djangogirls.org/zh/

@@ -52,7 +52,7 @@
 <!--         <li><a href="/mysite/new_post"> 发帖 </a></li> -->
         <li><a id="sign" href="#"><span>签到</span></a></li>
         <li><a id="pop" href="#"> <span>发帖</span> </a></li>
-        <li><a id="chat" href="/mysite/chat/"> <span> 私信 </span> <span class="badge"> 12 </span> </a></li>
+        <li><a id="chat" href="#"> <span> 私信 </span> <span class="badge" id="msg_count"></span> </a></li>
         </ul>
    <!--      <p class="navbar-text navbar-left">向左对齐-文本</p> -->
         
@@ -66,14 +66,43 @@
     </div>
 </nav>
 <script type="text/javascript">
-    //$(document).ready(function(){
+    $(document).ready(function(){
+        //$('#msg_count').text('12')
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+        $.ajax({
+            url: '/mysite/get_unread_msg_count/',
+            type: 'POST',
+            data: {'csrfmiddlewaretoken': csrftoken},
+            dataType: 'json',
+            timeout: 3000,
+            success: function(result) {
+                //alert(result.count);
+                $('#msg_count').text(result.count)
+            }
+        })
+    });
         $('a#sign').click(function(){
             $.ajax({
                 url: '/mysite/sign/',
                 type: 'POST',
                 data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
                 dataType: 'json',
-                timeout: 10000,
+                timeout: 3000,
                 success: function(result) {
                     if(result.data == "post_success") {
                         alert("sign success");
@@ -83,8 +112,11 @@
                     }
                 }
             });
-      //  });
-    });
+        });
+        $('a#chat').click(function(){
+            $('#msg_count').remove()
+            window.location = "/mysite/chat/"
+        })
 </script>
 <div id="main">
     <div class="main-left">

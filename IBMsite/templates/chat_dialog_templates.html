@@ -2,26 +2,14 @@
 <div id="chat_dialog" style="display: none">
     <div class="main-middle-middle" style="background-color: #65ffa7;float: inherit;margin-bottom: 20px;  width:97%;">
         <div class="row pre-scrollable" style="overflow-y:scroll;"  id="chatter">
-            <div class="leftd">
-                <div class="speech left" ng-class="speech left">
-                    二货，你看你傻样！
+            <div class="leftd" id="last_left">
+                <div class="speech left" ng-class="speech left" style="display: none">
                 </div>
             </div>
-            <div class="rightd" id="last_one">
-                <div class="speech right" ng-class="speech left">
-                    嘻嘻嘻嘻。。。。。。
+            <div class="rightd" id="last_right" >
+                <div class="speech right" ng-class="speech left" style="display: none">
                 </div>
             </div>
-            <!--<div class="leftd">-->
-                <!--<div class="speech left" ng-class="speech left">-->
-                    <!--笑什么笑，没看到本宝宝今天变漂亮了吗？-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="rightd" id="last_one">-->
-                <!--<div class="speech right" ng-class="speech left">-->
-                     <!--哈哈哈-->
-                <!--</div>-->
-            <!--</div>-->
         </div>
     </div>
     <div class="main-middle-bottom">
@@ -39,16 +27,11 @@
               return
           }
           event.preventDefault()
-//          <div class="rightd">
-//            <div class="speech right" ng-class="speech left">
-//                嘻嘻嘻嘻。。。。。。
-//            </div>
-//        </div>
 
           $('textarea').val('')
 
           var border_div = document.getElementById("chatter")
-          var outer_div = document.getElementById("last_one")
+          var outer_div = document.getElementById("last_right")
           var insert_div = outer_div.cloneNode(true)
           insert_div.children[0].innerHTML = msg
           border_div.insertBefore(insert_div,outer_div.nextSibling)

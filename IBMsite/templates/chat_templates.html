@@ -29,6 +29,7 @@
             var messages;
             $(window).on('load',function () {
                 $('button').click(function () {
+                    $('#message_num').remove()
                     var str = $(this).text()
                     var index = str.indexOf(": ")
                     var sub = str.substring(index+2)
@@ -38,7 +39,7 @@
                     $.ajax({
                         url: full_url,
                         type: 'POST',
-                        data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                        data: {'csrfmiddlewaretoken': '{{ csrf_token }}','data': 'somedata'},
                         dataType: 'json',
                         timeout: 3000,
                         success: function(result) {
@@ -49,14 +50,54 @@
                             console.log(receive_messages)
                             console.log(send_messages)
                             //alert("success")
+                            clearMessage()
                             insertMessage(receive_messages,send_messages)
                             //
+                            $('#talker').text(sub)
                             document.getElementById("chat_dialog").style.display="block";
                         }
                     })
                 })
+                function clearMessage() {
+                    
+                }
                 function insertMessage(receive_messages,send_messages) {
+                    document.getElementById("last_left").style.display = "block"
+                    document.getElementById("last_right").style.display = "block"
+                    var count = receive_messages.length>send_messages.length?receive_messages.length:send_messages.length;
+                    for (var i=0;i<count;i++){
+                        console.log("pk = " + receive_messages[i].pk);
+                        console.log("msg_from = " + receive_messages[i].fields.msg_from);
+                        console.log("msg_to = " + receive_messages[i].fields.msg_to);
+                        console.log("content = " + receive_messages[i].fields.content);
+                        console.log("time = " + receive_messages[i].fields.time);
 
+                        if (send_messages.length>i) {
+                            var border_div = document.getElementById("chatter")
+                            var outer_div = document.getElementById("last_left")
+                            var insert_div = outer_div.cloneNode(true)
+
+                            insert_div.children[0].innerHTML = send_messages[i].fields.content
+                            insert_div.children[0].style.display="block"
+                            //border_div.insertBefore(insert_div,outer_div.nextSibling)
+                            border_div.appendChild(insert_div)
+                            outer_div.removeAttribute("id")
+                        }
+
+                        if (receive_messages.length>i){
+                            var border_div = document.getElementById("chatter")
+                            var outer_div = document.getElementById("last_right")
+                            var insert_div = outer_div.cloneNode(true)
+                            insert_div.children[0].innerHTML = receive_messages[i].fields.content
+                            insert_div.children[0].style.display="block"
+                            //border_div.insertBefore(insert_div,outer_div.nextSibling)
+                            border_div.appendChild(insert_div)
+                            outer_div.removeAttribute("id")
+                        }
+
+                        var div = document.getElementById("chatter")
+                        div.scrollTop = div.scrollHeight
+                    }
                 }
             })
         </script>
@@ -84,7 +125,7 @@
         <div class="main-middle-top" style="background-color: black">
             <nav class="navbar nav-default nav-static-top">
                 <div >
-                    <p style="text-align: center;margin-top: 10px;color: whitesmoke">someone</p>
+                    <p style="text-align: center;margin-top: 10px;color: whitesmoke" id="talker">someone</p>
                 </div>
             </nav>
         </div>

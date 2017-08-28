@@ -32,7 +32,7 @@ def send_email(request):
 	smtp_server = 'smtp.qq.com'
 	smtp_port = 587
 
-	msg = MIMEText('你好,你的邀请码为', 'plain', 'utf-8')
+	msg = MIMEText('你好,你的邀请码为tobemember', 'plain', 'utf-8')
 	msg['From'] = _format_addr(u'管理员 <%s>' % from_addr)
 	msg['To'] = _format_addr(u'管理员 <%s>' % to_addr)
 	msg['Subject'] = Header(u'来自华南理工大学IBM主机创新俱乐部的问候 ^_^!', 'utf-8').encode()
