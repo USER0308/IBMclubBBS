@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect,render_to_response
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.utils.timezone import now
 from mysite.models import Member_Model,Post_Model,Sign_Model,JuncheePaginator
 # from django.core.paginator import Paginator
 # from django.core.paginator import PageNotAnInteger

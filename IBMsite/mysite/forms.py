@@ -63,7 +63,7 @@ class Sign_Up_Form(forms.ModelForm):
 	class Meta:
 		app_label='mysite'
 		model = Member_Model
-		fields = ('email','password','nick_name','department','phone_number','address')
+		fields = ('email','nick_name','department','phone_number','address')
 
 	def clean(self):
 		return self.cleaned_data

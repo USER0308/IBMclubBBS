@@ -10,17 +10,21 @@
         $(document).ready(function(){
             $('a#send_mail').click(function(){
                 var email_addr = $('#id_email').val();
+                //alert(email_addr)
                 $.ajax({
                     url: '/mysite/send_email/',
                     type: "POST",
                     headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
-                    data: {'email_addr': email_addr,
-                        },
+                    data: {'email_addr': email_addr },
                     dataType: 'json',
                     timeout :3000,
                     success: function(result) {
+                        //console.log(result)
                         if(result.status == "200")
-                            alert(result.status);
+                            alert("发送成功");
+                        else if(result.status =="500"){
+                            alert("该用户已发送过邀请码")
+                        }
                             // $('#replymodal').modal('hide');
                             // window.location.reload();
                     }

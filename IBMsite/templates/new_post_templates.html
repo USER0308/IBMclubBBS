@@ -29,36 +29,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(window).on('load',function(){
-        $('a#pop').click(function(){
-            $('#mymodal').modal('show');
-        });
-    });
-</script>
-<script type="text/javascript">
-    function new_post() {
-        var theme = $('#theme').val();
-        var content = $('#content').val();
-        var section = $("#section").val();
-        $.ajax({
-            url: '/mysite/new_post/',
-            type: "POST",
-            headers:{ "X-CSRFtoken":$.cookie("csrftoken")},
-            data: {'theme': theme,
-                    'content': content,
-                    'section':section,
-                },
-            dataType: 'json',
-            timeout :3000,
-            success: function(result) {
-                if(result.status == "200"){
-                    $('#mymodal').modal('hide');
-                    window.location.reload();
-                }else {
-                    alert("internal error");
-                }
-            }
-        });
-    }
-</script>

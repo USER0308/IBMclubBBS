@@ -17,7 +17,7 @@ def sign(request):
 		print("in ajax")
 		is_exists = Sign_Model.objects.filter(email=get_email).exists()
 		if not is_exists:
-			Sign_Model.objects.create(email=get_email,cost=5,last_sign=now())
+			Sign_Model.objects.create(email=get_email,cost=5,last_sign=now)
 			return HttpResponse(json.dumps({"data":"post_success"}))
 		obj = Sign_Model.objects.get(email=get_email)
 		if obj.last_sign.date() != now().date():
